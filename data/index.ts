@@ -69,12 +69,12 @@ export const gridItems = [
   },
 ];
 
-export const projects = [
+export const personalprojects = [
   {
     id: 1,
     title: "ToDo List App",
     des: "This is a ToDo list App with LocalStorage",
-    img: "projects/TodoListAppScreenshot.jpg",
+    img: "/projects/TodoListAppScreenshot.jpg",
     iconLists: ["/re.svg", "/tail.svg", "/ts.svg", "/three.svg", "/fm.svg"],
     source: "https://github.com/HainerSt/ToDoList-JS",
     link: "https://todolist-topaz-five.vercel.app/",
@@ -83,7 +83,7 @@ export const projects = [
     id: 2,
     title: "Edutech",
     des: "This is an educational single-page application.",
-    img: "projects/project-edutech.jpg",
+    img: "/projects/project-edutech.jpg",
     iconLists: ["/next.svg", "/tail.svg", "/ts.svg", "/stream.svg", "/c.svg"],
     source: "https://github.com/HainerSt/EduTech.git",
     link: "https://edutech-mu-liart.vercel.app/",
@@ -92,7 +92,7 @@ export const projects = [
     id: 3,
     title: "Crypto Monitoring App",
     des: "Crypto Monitoring App with CoinGecko API",
-    img: "projects/chainer-background.jpg",
+    img: "/projects/chainer-background.jpg",
     iconLists: ["/re.svg", "/tail.svg", "/ts.svg", "/three.svg", "/c.svg"],
     source: "https://github.com/HainerSt/Chainer---Crypto-App",
     link: "https://chainer-crypto-app.vercel.app/",
