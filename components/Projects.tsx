@@ -6,7 +6,7 @@ const Projects = () => {
   return (
     <div className="py-20">
       <h1 className="heading">My Projects</h1>
-      <div className="flex flex-wrap items-center justify-center mt-10">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
         {personalprojects.map(({ id, title, img, des, source, link }) => (
           <Card3D key={id} title={title} img={img} des={des} source={source} link={link} />
         ))}
