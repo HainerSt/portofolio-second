@@ -1,7 +1,6 @@
 export const navItems = [
   { name: "About", link: "#about" },
   { name: "Projects", link: "#projects" },
-  { name: "Testimonials", link: "#testimonials" },
   { name: "Contact", link: "#contact" },
 ];
 
@@ -75,7 +74,7 @@ export const personalprojects = [
     title: "ToDo List App",
     des: "This is a ToDo list App with LocalStorage",
     img: "/projects/TodoListAppScreenshot.jpg",
-    iconLists: ["/re.svg", "/tail.svg", "/ts.svg", "/three.svg", "/fm.svg"],
+    tech: ["/html.svg", "/css.svg", "/javascript.svg"],
     source: "https://github.com/HainerSt/ToDoList-JS",
     link: "https://todolist-topaz-five.vercel.app/",
   },
@@ -84,7 +83,7 @@ export const personalprojects = [
     title: "Edutech",
     des: "This is an educational single-page application.",
     img: "/projects/project-edutech.jpg",
-    iconLists: ["/next.svg", "/tail.svg", "/ts.svg", "/stream.svg", "/c.svg"],
+    tech: ["/html.svg", "/css.svg", "/javascript.svg"],
     source: "https://github.com/HainerSt/EduTech.git",
     link: "https://edutech-mu-liart.vercel.app/",
   },
@@ -93,7 +92,7 @@ export const personalprojects = [
     title: "Crypto Monitoring App",
     des: "Crypto Monitoring App with CoinGecko API",
     img: "/projects/chainer-background.jpg",
-    iconLists: ["/re.svg", "/tail.svg", "/ts.svg", "/three.svg", "/c.svg"],
+    tech: ["/html.svg", "/css.svg", "/javascript.svg", "/react.svg"],
     source: "https://github.com/HainerSt/Chainer---Crypto-App",
     link: "https://chainer-crypto-app.vercel.app/",
   },

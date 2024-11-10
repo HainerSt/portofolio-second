@@ -92,12 +92,12 @@ export const BentoGridItem = ({
 
           {id === 2 && <BackgroundBoxesDemo />}
           {id === 3 && (
-            <div className="flex gap-1 lg:gap-5 w-fit absolute -right-3 lg:-right-2">
-              <div className="flex flex-col gap-3 lg:gap-8 animate-verticalScroll">
+            <div className="flex gap-1 lg:gap-5 w-fit absolute -right-3 lg:-right-2 ">
+              <div className="flex flex-col gap-3 lg:gap-8 animate-verticalScroll md:pl-0">
                 {["HTML", "CSS", "JAVASCRIPT"].map((it) => (
                   <span
                     key={it}
-                    className="py-2 lg:py-4 lg:px-3 px-3 text-xs lg:text-base opacity-50 lg:opacity-100 rounded-lg text-center bg-[#10232E] mr-1"
+                    className="py-2 lg:py-4  lg:px-3 px-3 text-xs lg:text-base opacity-50  lg:opacity-100 rounded-lg text-center bg-[#10232E] mr-1"
                   >
                     {it}
                   </span>

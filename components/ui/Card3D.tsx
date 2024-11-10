@@ -10,29 +10,27 @@ interface Card3DProps {
   des: string;
   source: string;
   link: string;
+  tech: { iconUrl: string; name: string }[];
 }
 
-export const Card3D: React.FC<Card3DProps> = ({ title, img, des, source, link }) => {
+export const Card3D: React.FC<Card3DProps> = ({ title, img, des, source, link, tech }) => {
   return (
     <CardContainer className="inter-var mx-auto w-full max-w-[95%] h-auto">
-      {" "}
-      {/* Adjusted width for more page space */}
       <CardBody
         className={cn(
-          "relative group/card dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:border-white/[0.2] border-black/[0.1] h-90 w-full sm:w-[95%] md:w-[95%] lg:w-[95%] h-auto rounded-xl p-8 border gap-4 lg:gap-8 flex flex-col justify-between",
-          "linear-gradient"
+          "relative group/card dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:border-white/[0.2] border-black/[0.1] h-90 w-full sm:w-[95%] md:w-[95%] lg:w-[95%] h-auto rounded-xl p-8 border gap-4 lg:gap-8 flex flex-col justify-between"
         )}
       >
-        {/* Title with perspective effect */}
-        <CardItem translateZ={50} className="text-3xl font-bold text-neutral-600 dark:text-white flex-grow ">
+        {/* Title */}
+        <CardItem translateZ={50} className="text-3xl font-bold text-neutral-600 dark:text-white flex-grow">
           {title}
         </CardItem>
 
-        {/* Description with a bit more depth */}
+        {/* Description */}
         <CardItem
           as="p"
           translateZ={60}
-          className="text-neutral-500 text-sm max-w-lg mt-2 dark:text-neutral-300 flex-grow truncate max-h-[50px] flex-grow truncate" // Increased max width for wider text
+          className="text-neutral-500 text-sm max-w-lg mt-2 dark:text-neutral-300 flex-grow truncate max-h-[50px] "
         >
           {des}
         </CardItem>
@@ -49,6 +47,21 @@ export const Card3D: React.FC<Card3DProps> = ({ title, img, des, source, link })
             />
           </a>
         </CardItem>
+
+        {/* Technology Icons (SVGs) */}
+        <div className="flex justify-start items-center space-x-4 mt-4">
+          {tech.map((iconUrl, index) => (
+            <CardItem key={index} translateZ={70} className="w-8 h-8 flex-shrink-1">
+              <img
+                src={iconUrl}
+                alt={`Tech icon ${index + 1}`}
+                width={20}
+                height={20}
+                className="w-full h-full object-contain"
+              />
+            </CardItem>
+          ))}
+        </div>
 
         {/* Links section */}
         <div className="flex justify-between items-center mt-8 gap-4">
