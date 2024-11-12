@@ -98,40 +98,66 @@ export const personalprojects = [
   },
 ];
 
-export const certifications = [
-  {
-    id: 1,
-    name: "Advanced React",
-    organisation: "Meta | Coursera",
-    link: "https://coursera.org/share/1d7d99e754e42c576a3d876909da349a",
-  },
-  {
-    id: 2,
-    name: "React Basics",
-    organisation: "Meta | Coursera",
-    link: "https://coursera.org/share/8e0fd3c69d46c878e12b05095c589c56",
-  },
-  {
-    id: 3,
-    name: "JavaScript Algorithms & Data Structures",
-    organisation: "freeCodeCamp",
-    link: "https://freecodecamp.org/certification/HainerStefan/javascript-algorithms-and-data-structures-v8",
-  },
-  {
-    id: 4,
-    name: "Responsive Web Design",
-    organisation: "freeCodeCamp",
-    link: "https://freecodecamp.org/certification/HainerStefan/responsive-web-design",
-  },
-];
-
-export const workExperience = [
+export const experience = [
   {
     id: 1,
     title: "FrontEnd Software Developer",
-    desc: "Assisted in the development of a web-based platform using React.js, enhancing interactivity.",
+    company: "BNG Tracking",
+    des: [
+      "Designed and implemented new features in a GPS tracking app for logistics companies.",
+      "Used React to migrate multi-page user experiences to single-page apps.",
+      "Made a feature that shows the status of an invoice on the client-side allowing users to easily view payment status (paid/unpaid) and outstanding balance, improving user experience.",
+    ],
     className: "md:col-span-2",
+    thumbnail: "/exp4.svg",
+  },
+  {
+    id: 2,
+    title: "Advanced React Course",
+    organisation: "Meta | Coursera",
+    des: [
+      "Created robust and reusable components using advanced techniques and learned different patterns to reuse common behaviors.",
+      "Interacted with a remote server and successfully fetched and posted data via an API.",
+      "Seamlessly tested React applications using React Testing Library.",
+    ],
+    link: "https://coursera.org/share/1d7d99e754e42c576a3d876909da349a",
+    thumbnail: "/exp3.svg",
+  },
+  {
+    id: 3,
+    title: "React Basics Course",
+    organisation: "Meta | Coursera",
+    des: [
+      "Worked with reusable components to render views where data changes over time.",
+      "Utilized props to pass data between components, creating dynamic and interactive web pages and apps.",
+      "Implemented forms to allow users to interact with the app and built a complete application in React.",
+    ],
+    link: "https://coursera.org/share/8e0fd3c69d46c878e12b05095c589c56",
+    thumbnail: "/exp2.svg",
+  },
+  {
+    id: 4,
+    title: "JavaScript Algorithms & Data Structures Course",
+    organisation: "freeCodeCamp",
+    des: [
+      "Learned fundamental programming concepts in JavaScript, including variables, loops, functions, arrays, objects, and linked lists, gaining skills to manipulate and organize data effectively.",
+      "Developed algorithmic thinking by studying common algorithms such as sorting and searching.",
+      "Completed coding challenges to strengthen problem-solving abilities.",
+    ],
+    link: "https://freecodecamp.org/certification/HainerStefan/javascript-algorithms-and-data-structures-v8",
     thumbnail: "/exp1.svg",
+  },
+  {
+    id: 5,
+    title: "Responsive Web Design",
+    organisation: "freeCodeCamp",
+    des: [
+      "Learned the fundamentals of HTML and CSS to structure and style web pages.",
+      "Built responsive layouts using CSS Flexbox and Grid to ensure designs adapt to different screen sizes.",
+      "Applied accessibility principles and built responsive projects, like portfolios and landing pages, developing a solid foundation in user-friendly, adaptable web design.",
+    ],
+    link: "https://freecodecamp.org/certification/HainerStefan/responsive-web-design",
+    thumbnail: "/exp2.svg",
   },
 ];
 

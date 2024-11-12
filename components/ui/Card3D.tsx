@@ -15,7 +15,7 @@ interface Card3DProps {
 
 export const Card3D: React.FC<Card3DProps> = ({ title, img, des, source, link, tech }) => {
   return (
-    <CardContainer className="inter-var mx-auto w-full max-w-[95%] h-auto">
+    <CardContainer className="inter-var mx-auto w-full max-w-[95%]">
       <CardBody
         className={cn(
           "relative group/card dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:border-white/[0.2] border-black/[0.1] h-90 w-full sm:w-[95%] md:w-[95%] lg:w-[95%] h-auto rounded-xl p-8 border gap-4 lg:gap-8 flex flex-col justify-between"
