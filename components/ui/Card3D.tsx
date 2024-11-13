@@ -10,7 +10,7 @@ interface Card3DProps {
   des: string;
   source: string;
   link: string;
-  tech: { iconUrl: string; name: string }[];
+  tech: string[]
 }
 
 export const Card3D: React.FC<Card3DProps> = ({ title, img, des, source, link, tech }) => {
