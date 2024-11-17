@@ -98,6 +98,19 @@ export const personalprojects = [
   },
 ];
 
+export const profilelinks = [
+  { id: 1, 
+    title: "LinkedIn", 
+    link: "https://www.linkedin.com/in/hainerstefan/", 
+    img:  "/link.svg"},
+  {
+    id: 2,
+    title: "GitHub",
+    link: "https://github.com/HainerSt",
+    img: "/git.svg"
+  },
+];
+
 export const experience = [
   {
     id: 1,
