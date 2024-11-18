@@ -10,7 +10,7 @@ interface Card3DProps {
   des: string;
   source: string;
   link: string;
-  tech: string[]
+  tech: string[];
 }
 
 export const Card3D: React.FC<Card3DProps> = ({ title, img, des, source, link, tech }) => {
@@ -22,7 +22,7 @@ export const Card3D: React.FC<Card3DProps> = ({ title, img, des, source, link, t
         )}
       >
         {/* Title */}
-        <CardItem translateZ={50} className="text-3xl font-bold text-neutral-600 dark:text-white flex-grow">
+        <CardItem translateZ={50} className="text-xl md:text-2xl font-bold  text-neutral-600 dark:text-white flex-grow">
           {title}
         </CardItem>
 
@@ -30,7 +30,7 @@ export const Card3D: React.FC<Card3DProps> = ({ title, img, des, source, link, t
         <CardItem
           as="p"
           translateZ={60}
-          className="text-neutral-500 text-sm max-w-lg mt-2 dark:text-neutral-300 flex-grow truncate max-h-[50px] "
+          className="mt-2 text-xs md:text-sm text-neutral-500  max-w-lg  dark:text-neutral-300 flex-grow truncate max-h-[50px] "
         >
           {des}
         </CardItem>
