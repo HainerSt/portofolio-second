@@ -11,7 +11,7 @@ import { BackgroundBoxesDemo } from "./BackgroundBoxesDemo";
 export const BentoGrid = ({ className, children }: { className?: string; children?: React.ReactNode }) => {
   return (
     <div
-      className={cn("gap-4 lg:gap-8 mx-auto grid md:grid-row-7 grid-cols-1 md:grid-cols-6 lg:grid-cols-5  ", className)}
+      className={cn("gap-4 lg:gap-8 mx-auto grid md:grid-row-4 grid-cols-1 md:grid-cols-6 lg:grid-cols-5  ", className)}
     >
       {children}
     </div>

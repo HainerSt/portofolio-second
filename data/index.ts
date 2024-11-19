@@ -1,45 +1,16 @@
 export const navItems = [
   { name: "About", link: "#about" },
   { name: "Projects", link: "#projects" },
+  { name: "Experience", link: "#experience" },
   { name: "Contact", link: "#contact" },
 ];
 
 export const gridItems = [
   {
-    id: 3,
-    title: "My tech stack",
-    description: "I constantly try to improve",
-    className: "lg:col-span-3 md:col-span-6 md:row-span-4 lg:min-h-[60vh]",
-    imgClassName: "w-full h-full",
-    titleClassName: "justify-end",
-    img: "",
-    spareImg: "",
-  },
-  {
-    id: 2,
-    title: "",
-    description: "",
-    className: "lg:col-span-2 md:col-span-3 md:row-span-2",
-    imgClassName: "",
-    titleClassName: "justify-start",
-    img: "",
-    spareImg: "",
-  },
-  {
     id: 1,
-    title: "I prioritize client collaboration",
-    description: "",
-    className: "lg:col-span-2 md:col-span-3 md:row-span-2",
-    imgClassName: "",
-    titleClassName: "justify-center",
-    img: "",
-    spareImg: "",
-  },
-  {
-    id: 4,
     title: "Tech enthusiast with a passion for development.",
     description: "",
-    className: "lg:col-span-2 md:col-span-3 md:row-span-1",
+    className: "lg:col-span-2 md:col-span-3 md:row-span-2",
     imgClassName: "",
     titleClassName: "justify-start",
     img: "/grid.svg",
@@ -47,20 +18,30 @@ export const gridItems = [
   },
 
   {
-    id: 5,
-    title: "Currently working on .....",
-    description: "The Inside Scoop",
-    className: "md:col-span-3 md:row-span-2",
-    imgClassName: "absolute right-0 bottom-0 md:w-96 w-60",
-    titleClassName: "justify-center md:justify-start lg:justify-center",
-    img: "/b5.svg",
-    spareImg: "/grid.svg",
+    id: 2,
+    title: "",
+    description: "",
+    className: "md:col-span-3 md:row-span-2 lg:col-span-3 ",
+    imgClassName: "",
+    titleClassName: "justify-start",
+    img: "",
+    spareImg: "",
+  },
+  {
+    id: 3,
+    title: "My tech stack",
+    description: "I constantly try to improve",
+    className: " md:col-span-4 md:row-span-1 lg:col-span-3 lg:min-h-[60vh]",
+    imgClassName: "w-full h-full",
+    titleClassName: "justify-end",
+    img: "",
+    spareImg: "",
   },
   {
     id: 6,
     title: "Do you want to start a project together?",
     description: "",
-    className: "lg:col-span-2 md:col-span-3 md:row-span-1",
+    className: " md:col-span-1 md:row-span-1 lg:col-span-2",
     imgClassName: "",
     titleClassName: "justify-center md:max-w-full max-w-60 text-center",
     img: "",
@@ -119,10 +100,22 @@ export const experience = [
       "Made a feature that shows the status of an invoice on the client-side allowing users to easily view payment status (paid/unpaid) and outstanding balance, improving user experience.",
     ],
     className: "md:col-span-2",
-    thumbnail: "/exp4.svg",
+    thumbnail: "/gps.svg",
   },
   {
     id: 2,
+    title: "Unit Testing in React.js",
+    organisation: "Coursera",
+    des: [
+      "Constructed a variety of test cases using diverse selection methods.",
+      "Developed and implemented negative test assertions for conditionally rendered elements and asynchronous scenarios.",
+      "Employed mocking techniques to simulate component behavior for more effective testing.",
+    ],
+    link: "https://coursera.org/share/68214800d63b7f98be22657ea4dfdb4c",
+    thumbnail: "/magnifier.svg",
+  },
+  {
+    id: 3,
     title: "Advanced React Course",
     organisation: "Meta | Coursera",
     des: [
@@ -134,7 +127,7 @@ export const experience = [
     thumbnail: "/exp3.svg",
   },
   {
-    id: 3,
+    id: 4,
     title: "React Basics Course",
     organisation: "Meta | Coursera",
     des: [
@@ -146,7 +139,7 @@ export const experience = [
     thumbnail: "/exp2.svg",
   },
   {
-    id: 4,
+    id: 5,
     title: "JavaScript Algorithms & Data Structures Course",
     organisation: "freeCodeCamp",
     des: [
@@ -158,7 +151,7 @@ export const experience = [
     thumbnail: "/exp1.svg",
   },
   {
-    id: 5,
+    id: 6,
     title: "Responsive Web Design",
     organisation: "freeCodeCamp",
     des: [
@@ -167,21 +160,6 @@ export const experience = [
       "Applied accessibility principles and built responsive projects, like portfolios and landing pages, developing a solid foundation in user-friendly, adaptable web design.",
     ],
     link: "https://freecodecamp.org/certification/HainerStefan/responsive-web-design",
-    thumbnail: "/exp2.svg",
-  },
-];
-
-export const socialMedia = [
-  {
-    id: 1,
-    img: "/git.svg",
-  },
-  {
-    id: 2,
-    img: "/twit.svg",
-  },
-  {
-    id: 3,
-    img: "/link.svg",
+    thumbnail: "/exp5.svg",
   },
 ];
