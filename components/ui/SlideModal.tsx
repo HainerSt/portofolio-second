@@ -40,7 +40,7 @@ export function SlideModal() {
             </motion.span>
 
             {/* SVG Icon */}
-            <motion.div className="absolute inset-0 -translate-x-40 flex items-center justify-center transition-transform duration-500 group-hover:translate-x-0">
+            <motion.div className="absolute inset-0 -translate-x-40 flex items-center justify-center transition-transform duration-500 group-hover:translate-x-0 ">
               {profile.id === 1 && <FaLinkedin size={24} />}
               {profile.id === 2 && <FaGithub size={24} />}
               {profile.id === 3 && <FaEnvelope size={24} />}

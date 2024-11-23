@@ -2,11 +2,11 @@
 import { cn } from "@/lib/utils";
 import { BackgroundGradientAnimation } from "./BackgroundGradientAnimation";
 import Lottie from "react-lottie";
-import { useState } from "react";
-import animationData from "@/data/confetti.json";
-import MagicButton from "../MagicButton";
-import { IoCopyOutline } from "react-icons/io5";
 import { BackgroundBoxesDemo } from "./BackgroundBoxesDemo";
+import { OrbitingCirclesDemo } from "./OrbitingCirclesDemo";
+import MagicButton from "./MagicButton";
+import animationData from "../../data/confetti.json";
+import { useEffect, useState } from "react";
 
 export const BentoGrid = ({ className, children }: { className?: string; children?: React.ReactNode }) => {
   return (
@@ -46,10 +46,20 @@ export const BentoGridItem = ({
     setCopied(true);
   };
 
+  useEffect(() => {
+    if (copied) {
+      const timer = setTimeout(() => {
+        setCopied(false);
+      }, 5000);
+
+      return () => clearTimeout(timer);
+    }
+  }, [copied]);
+
   return (
     <div
       className={cn(
-        "pb-20 relative row-span-1 rounded-2xl overflow-hidden group/bento hover:shadow-xl transition duration-200 shadow-input dark:shadow-none  dark:bg-black dark:border-white/[0.2] bg-white  justify-between flex flex-col space-y-4 border border-white/[0.1]",
+        "relative row-span-1 rounded-2xl overflow-hidden group/bento hover:shadow-xl transition duration-200 shadow-input dark:shadow-none  dark:bg-black dark:border-white/[0.2] bg-white  justify-between flex flex-col space-y-4 border border-white/[0.1]",
         className
       )}
       style={{
@@ -80,10 +90,10 @@ export const BentoGridItem = ({
         <div
           className={cn(
             titleClassName,
-            "relative md:h-full min-h-40 flex flex-col px-5 p-5 lg:p-10 group-hover/bento:translate-x-2 transition duration-200"
+            "relative md:h-full min-h-40 flex flex-col px-5 p-5 lg:p-10 group-hover/bento:translate-y-1 transition duration-200"
           )}
         >
-          <div className="font-sans font-extralight text-[#c1c2d4] text-sm dark:text-neutral-300 md:text-xs lg:text-base z-10">
+          <div className="font-sans font-extralight text-[#c1c2d4] text-sm dark:text-neutral-300 md:text-xs lg:text-base z-10 bg-red inline-block px-2 py-1 rounded">
             {description}
           </div>
           <div className="font-sans font-bold text-neutral-600 dark:text-neutral-200 lg:text-3xl max-w-96 z-10">
@@ -92,33 +102,23 @@ export const BentoGridItem = ({
 
           {id === 2 && <BackgroundBoxesDemo />}
           {id === 3 && (
-            <div className="flex gap-1 lg:gap-5 w-fit absolute -right-3 lg:-right-2 ">
-              <div className="flex flex-col gap-3 lg:gap-8 animate-verticalScroll md:pl-0 mt-16">
-                {["HTML", "CSS", "JAVASCRIPT"].map((it) => (
-                  <span
-                    key={it}
-                    className=" py-2 lg:py-4  lg:px-3 px-3 text-md lg:text-2xl opacity-50  lg:opacity-100 rounded-lg text-center bg-[#10232E] mr-1"
-                  >
-                    {it}
-                  </span>
-                ))}
-                <span className="py-5 px-3 rounded-lg text-center bg-[#10232E]" />
+            <>
+              <div className="flex gap-1 lg:gap-5 w-fit absolute -right-3 lg:-right-2 ">
+                <OrbitingCirclesDemo />
               </div>
-              <div className="flex flex-col gap-3 lg:gap-8 animate-verticalScroll mb-16">
-                <span className="py-4 px-3 rounded-lg text-center bg-[#10232E]" />
-                {["TYPESCRIPT", "REACT", "Next.js"].map((it) => (
-                  <span
-                    key={it}
-                    className=" py-2 lg:py-4  lg:px-3 px-3 text-md lg:text-2xl opacity-50  lg:opacity-100 rounded-lg text-center bg-[#10232E] mr-1"
-                  >
-                    {it}
-                  </span>
-                ))}
+              <div className="flex mt-5 text-3xl lg:text-3xl ">
+                <ul>
+                  <li>HTML</li>
+                  <li>CSS</li>
+                  <li>Javascript</li>
+                  <li>React</li>
+                  <li>Next.JS</li>
+                </ul>
               </div>
-            </div>
+            </>
           )}
           {id === 6 && (
-            <div className="mt-5 relative">
+            <div id="firstdiv" className="mt-5 relative">
               <div className="dynamic absolute -bottom-5 right-0">
                 <Lottie
                   options={{
@@ -131,13 +131,7 @@ export const BentoGridItem = ({
                   }}
                 />
               </div>
-              <MagicButton
-                title={copied ? "Email copied" : "Copy my mail"}
-                icon={<IoCopyOutline />}
-                position="left"
-                otherClasses="!bg-[#161a31]"
-                handleClick={handleCopy}
-              />
+              <MagicButton title={copied ? "Mail copied" : "Copy mail"} handleClick={handleCopy} />
             </div>
           )}
         </div>

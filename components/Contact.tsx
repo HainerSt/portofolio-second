@@ -36,8 +36,8 @@ const Contact = () => {
             words={words}
             className="text-sm md:text-lg lg:text-xl px-5 mb-10 bg-[#000319] select-none w-auto mx-auto inline-block my-10"
           />
-          <SlideModal />
-          <p className="text-xs md:text-sm text-gray-400 bg-[#000319] select-none w-auto mx-auto inline-block pb-16 mt-10">
+          <SlideModal/>
+          <p className="text-xs md:text-sm text-gray-400 bg-[#000319] select-none w-auto mx-auto inline-block  mt-10">
             &copy; {new Date().getFullYear()} Hainer Stefan. All rights reserved.
           </p>
         </div>

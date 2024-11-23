@@ -104,7 +104,7 @@ export const experience = [
   },
   {
     id: 2,
-    title: "Unit Testing in React.js",
+    title: "Unit Testing in React.js [Course]",
     organisation: "Coursera",
     des: [
       "Constructed a variety of test cases using diverse selection methods.",
@@ -116,7 +116,7 @@ export const experience = [
   },
   {
     id: 3,
-    title: "Advanced React Course",
+    title: "Advanced React [Course]",
     organisation: "Meta | Coursera",
     des: [
       "Created robust and reusable components using advanced techniques and learned different patterns to reuse common behaviors.",
@@ -128,7 +128,7 @@ export const experience = [
   },
   {
     id: 4,
-    title: "React Basics Course",
+    title: "React Basics [Course]",
     organisation: "Meta | Coursera",
     des: [
       "Worked with reusable components to render views where data changes over time.",
@@ -140,7 +140,7 @@ export const experience = [
   },
   {
     id: 5,
-    title: "JavaScript Algorithms & Data Structures Course",
+    title: "JavaScript Algorithms & Data Structures [Course]",
     organisation: "freeCodeCamp",
     des: [
       "Learned fundamental programming concepts in JavaScript, including variables, loops, functions, arrays, objects, and linked lists, gaining skills to manipulate and organize data effectively.",
@@ -152,7 +152,7 @@ export const experience = [
   },
   {
     id: 6,
-    title: "Responsive Web Design",
+    title: "Responsive Web Design [Course]",
     organisation: "freeCodeCamp",
     des: [
       "Learned the fundamentals of HTML and CSS to structure and style web pages.",
