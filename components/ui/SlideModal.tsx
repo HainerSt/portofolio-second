@@ -32,15 +32,15 @@ export function SlideModal() {
             href={profile.link}
             target="_blank"
             rel="noopener noreferrer"
-            className="relative bg-black dark:bg-white dark:text-black text-white flex items-center justify-center group hover:no-underline w-32 h-16 overflow-hidden rounded-lg shadow-md"
+            className="relative bg-black dark:bg-white dark:text-black text-white flex items-center justify-center group hover:no-underline w-24 h-24 overflow-hidden rounded-full shadow-md"
           >
             {/* Title */}
-            <motion.span className="absolute inset-0 flex items-center justify-center text-center transition-transform duration-500 group-hover:translate-x-40">
+            <motion.span className="absolute inset-0 flex items-center justify-center text-center transition-transform duration-500 group-hover:translate-x-40 font-bold">
               {profile.title}
             </motion.span>
 
             {/* SVG Icon */}
-            <motion.div className="absolute inset-0 -translate-x-40 flex items-center justify-center transition-transform duration-500 group-hover:translate-x-0 ">
+            <motion.div className="absolute inset-0 -translate-x-40 flex items-center justify-center transition-transform duration-500 group-hover:translate-x-0 font-bold">
               {profile.id === 1 && <FaLinkedin size={24} />}
               {profile.id === 2 && <FaGithub size={24} />}
               {profile.id === 3 && <FaEnvelope size={24} />}

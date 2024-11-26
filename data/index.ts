@@ -113,6 +113,7 @@ export const experience = [
     ],
     link: "https://coursera.org/share/68214800d63b7f98be22657ea4dfdb4c",
     thumbnail: "/magnifier.svg",
+    img: "/exp/UTR.jpg",
   },
   {
     id: 3,
@@ -125,6 +126,7 @@ export const experience = [
     ],
     link: "https://coursera.org/share/1d7d99e754e42c576a3d876909da349a",
     thumbnail: "/exp3.svg",
+    img: "/exp/MReactA.jpg",
   },
   {
     id: 4,
@@ -137,6 +139,7 @@ export const experience = [
     ],
     link: "https://coursera.org/share/8e0fd3c69d46c878e12b05095c589c56",
     thumbnail: "/exp2.svg",
+    img: "/exp/MREACTB.jpg",
   },
   {
     id: 5,
@@ -149,6 +152,7 @@ export const experience = [
     ],
     link: "https://freecodecamp.org/certification/HainerStefan/javascript-algorithms-and-data-structures-v8",
     thumbnail: "/exp1.svg",
+    img: "/exp/JSADS.jpg",
   },
   {
     id: 6,
@@ -161,5 +165,6 @@ export const experience = [
     ],
     link: "https://freecodecamp.org/certification/HainerStefan/responsive-web-design",
     thumbnail: "/exp5.svg",
+    img: "/exp/RWD.jpg",
   },
 ];
