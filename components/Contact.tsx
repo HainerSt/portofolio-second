@@ -9,7 +9,7 @@ const Contact = () => {
     "I'm always excited to chat about new opportunities! Feel free to reach out through any platform below.";
   return (
     <footer
-      className="w-full h-full static flex flex-col justify-center items-center text-center bg-gradient-to-b text-white pt-20 rounded-lg "
+      className="w-full h-full static flex flex-col justify-center items-center text-center bg-gradient-to-b text-white  rounded-lg"
       id="contact"
     >
       <div className="w-full h-full relative z-30 mx-auto">
@@ -27,17 +27,17 @@ const Contact = () => {
           initialPerformance="medium"
         />
 
-        <div className="max-w-7xl py-10 mx-auto px-4 text-center z-50">
-          <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold tracking-wide uppercase  bg-[#000319] select-none w-auto mx-auto inline-block px-5">
+        <div className="max-w-7xl pt-10 mt-10 mx-auto px-4 text-center z-50">
+          <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold tracking-wide uppercase  bg-[#000319] select-none w-auto mx-auto inline-block px-5 pt-10">
             Let<span className="text-purple">&apos;</span>s Connect
           </h2>
 
           <TextGenerateEffect
             words={words}
-            className="text-sm md:text-lg lg:text-xl px-5 mb-10 bg-[#000319] select-none w-auto mx-auto inline-block my-10"
+            className="text-sm md:text-md lg:text-xl px-5 mb-10 bg-[#000319] select-none w-auto mx-auto inline-block my-5 lg:my-10"
           />
-          <SlideModal/>
-          <p className="text-xs md:text-sm text-gray-400 bg-[#000319] select-none w-auto mx-auto inline-block  mt-10">
+          <SlideModal />
+          <p className="text-xs md:text-sm text-gray-400 bg-[#000319] select-none w-auto mx-auto inline-block  mt-10 mb-10">
             &copy; {new Date().getFullYear()} Hainer Stefan. All rights reserved.
           </p>
         </div>

@@ -52,7 +52,7 @@ const Hero = () => {
               Hainer Stefan&apos;s Portofolio.
             </h1>
             <TextGenerateEffect
-              className="text-center text-[40px] md:text-5xl lg:text-6xl bg-[#000319] bg-opacity-50"
+              className="text-center  text-[40px] md:text-5xl lg:text-6xl lg:bg-[#000319] lg:bg-opacity-50 "
               words="Transforming Ideas into Experiences"
             />
             <p className="text-center md:tracking-wider mb-4 text-sm md:text-lg lg:text-2xl bg-[#000319] bg-opacity-50">
@@ -70,7 +70,7 @@ const Hero = () => {
           }`}
           onClick={scrollToContent}
         >
-          <FaChevronDown className="text-3xl text-blue-100 animate-bounce mb-32" />
+          <FaChevronDown className="text-3xl text-blue-100 animate-bounce mb-32 pb-10" />
         </div>
       </div>{" "}
     </>

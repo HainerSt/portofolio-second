@@ -15,14 +15,14 @@ interface Card3DProps {
 
 export const Card3D: React.FC<Card3DProps> = ({ title, img, des, source, link, tech }) => {
   return (
-    <CardContainer className="inter-var mx-auto w-full max-w-[95%] my-0 py-0">
+    <CardContainer className="inter-var mx-auto w-full md:max-w-full lg:max-w-[95%] my-0 py-0 flex flex-col h-full ">
       <CardBody
         className={cn(
-          "relative group/card dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:border-white/[0.2] border-black/[0.1] h-full w-full sm:w-[95%] md:w-[95%] lg:w-[95%]  rounded-xl p-8 border gap-4 lg:gap-8 flex flex-col justify-between "
+          " relative group/card dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:border-white/[0.2] border-black/[0.1] w-full sm:w-[95%] lg:w-[95%] rounded-xl p-8 border gap-4 lg:gap-8 flex flex-col justify-between h-full"
         )}
       >
         {/* Title */}
-        <CardItem translateZ={50} className="text-xl md:text-2xl font-bold  text-neutral-600 dark:text-white flex-grow">
+        <CardItem translateZ={50} className="text-xl md:text-xl font-bold text-neutral-600 dark:text-white flex-grow">
           {title}
         </CardItem>
 
@@ -30,7 +30,7 @@ export const Card3D: React.FC<Card3DProps> = ({ title, img, des, source, link, t
         <CardItem
           as="p"
           translateZ={60}
-          className="mt-2 text-xs md:text-sm text-neutral-500  max-w-lg  dark:text-neutral-300 flex-grow truncate max-h-[50px] "
+          className="mt-2 text-xs md:text-sm text-neutral-500 lg:max-w-lg dark:text-neutral-300 flex-grow  max-h-[50px]"
         >
           {des}
         </CardItem>

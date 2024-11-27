@@ -33,7 +33,11 @@ const Experience = () => {
             onClick={() => (index === 0 ? window.open("http://www.bngtracking.ro", "_blank") : openModal(e))}
           >
             <div className="grid grid-cols-[auto,1fr] gap-4 p-5 w-full items-center">
-              <img src={e.thumbnail} alt={e.title} className="object-contain" />
+              <img
+                src={e.thumbnail}
+                alt={e.title}
+                className="object-contain w-10 flex align-top items-start lg:w-full pr-4"
+              />
               <div className="w-full">
                 <h1 className="text-start text-xl md:text-2xl font-bold">{e.title}</h1>
                 <h2 className="text-start text-md md:text-lg font-bold text-neutral-400 dark:text-neutral-300">
