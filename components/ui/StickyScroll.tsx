@@ -20,6 +20,7 @@ export const StickyScroll = ({
   contentClassName?: string;
 }) => {
   const [activeCard, setActiveCard] = React.useState(0);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const ref = useRef<any>(null);
   const { scrollYProgress } = useScroll({
     // Uncomment line 22 and comment line 23 if you DON'T want the overflow container and want to have it change on the entire page scroll
@@ -49,9 +50,9 @@ export const StickyScroll = ({
   ];
 
   const [backgroundGradient, setBackgroundGradient] = useState(linearGradients[0]);
-
   useEffect(() => {
     setBackgroundGradient(linearGradients[activeCard % linearGradients.length]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [activeCard]);
 
   return (
@@ -105,11 +106,23 @@ export const StickyScroll = ({
                 }}
                 className="list-disc text-lg text-slate-300 my-8 list-outside"
               >
-                {item.des.map((point, i) => (
-                  <li key={i} className="py-1">
-                    {point}
-                  </li>
-                ))}
+                {item.des && (
+                  <motion.ul
+                    initial={{
+                      opacity: 0,
+                    }}
+                    animate={{
+                      opacity: activeCard === index ? 1 : 0.2,
+                    }}
+                    className="list-disc text-lg text-slate-300 my-8 list-outside"
+                  >
+                    {item.des.map((point, i) => (
+                      <li key={i} className="py-1">
+                        {point}
+                      </li>
+                    ))}
+                  </motion.ul>
+                )}
               </motion.ul>
             </div>
           ))}

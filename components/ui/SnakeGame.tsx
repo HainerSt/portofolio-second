@@ -14,7 +14,7 @@ export default function SnakeGame() {
     { x: 2, y: 5 },
   ]);
   const foodRef = useRef({ x: 10, y: 10 });
-  const gameLoopRef = useRef<number>();
+  const gameLoopRef = useRef<ReturnType<typeof setTimeout>>();
 
   const moveSnake = useCallback(() => {
     const canvas = canvasRef.current;

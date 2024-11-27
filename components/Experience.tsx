@@ -4,11 +4,23 @@ import React, { useState } from "react";
 import { Button } from "./ui/MovingBorder";
 import { IoIosCloseCircleOutline } from "react-icons/io";
 
+type ExperienceItem = {
+  id: number;
+  title: string;
+  company?: string;
+  organisation?: string;
+  des: string[];
+  className?: string;
+  thumbnail: string;
+  link?: string;
+  img?: string;
+};
+
 const Experience = () => {
-  const [selectedExperience, setSelectedExperience] = useState(null);
+  const [selectedExperience, setSelectedExperience] = useState<ExperienceItem | null>(null); // Specify type
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const openModal = (experience) => {
+  const openModal = (experience: ExperienceItem) => {
     setSelectedExperience(experience);
     setIsModalOpen(true);
   };
@@ -19,18 +31,18 @@ const Experience = () => {
   };
 
   return (
-    <div className="max-w-7xl mx-auto mb-20  py-10 px-5" id="experience">
+    <div className="max-w-7xl mx-auto mb-20 py-10 px-5" id="experience">
       <h1 className="heading mb-10">
         My e<span className="text-purple">xp</span>erience
       </h1>
       <div className="w-full grid grid-cols-1 md:grid-cols-4 gap-8 justify-items-stretch">
-        {experience.map((e, index) => (
+        {experience.map((e) => (
           <Button
             key={e.id}
             duration={Math.floor(Math.random() * 10000) + 10000}
             borderRadius="1.30rem"
             className="w-full text-white border border-neutral-200 dark:border-white-200"
-            onClick={() => (index === 0 ? window.open("http://www.bngtracking.ro", "_blank") : openModal(e))}
+            onClick={() => (e.id === 1 ? window.open("http://www.bngtracking.ro", "_blank") : openModal(e))}
           >
             <div className="grid grid-cols-[auto,1fr] gap-4 p-5 w-full items-center">
               <img
@@ -44,7 +56,7 @@ const Experience = () => {
                   {e.company ? e.company : e.organisation}
                 </h2>
                 <div className="mt-2 text-xs md:text-sm text-neutral-300">
-                  {e.des?.map((s, index) => (
+                  {e.des.map((s, index) => (
                     <p key={index} className="text-start py-1">
                       {s}
                     </p>
