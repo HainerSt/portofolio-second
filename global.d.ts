@@ -1,4 +1,4 @@
 declare module "tailwindcss/lib/util/flattenColorPalette" {
-  const flattenColorPalette: (palette: Record<string, any>) => Record<string, string>;
+  const flattenColorPalette: (value: unknown) => unknown;
   export default flattenColorPalette;
 }

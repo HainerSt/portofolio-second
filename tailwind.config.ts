@@ -6,6 +6,7 @@ import svgToDataUri from "mini-svg-data-uri";
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import colors from "tailwindcss/colors";
 import { default as flattenColorPalette } from "tailwindcss/lib/util/flattenColorPalette";
+import { PluginAPI } from "tailwindcss/types/config";
 
 const config = {
   darkMode: ["class"],
@@ -20,7 +21,7 @@ const config = {
   prefix: "",
   theme: {
     container: {
-      center: "true",
+      center: true,
       padding: "2rem",
       screens: {
         "2xl": "1400px",
@@ -226,8 +227,10 @@ const config = {
   ],
 } satisfies Config;
 
-function addVariablesForColors({ addBase, theme }: unknown) {
-  const allColors = flattenColorPalette(theme("colors"));
+function addVariablesForColors({ addBase, theme }: PluginAPI) {
+  // Make sure flattenColorPalette returns a valid object type
+  const allColors = flattenColorPalette(theme("colors")) as { [key: string]: string };
+
   const newVars = Object.fromEntries(Object.entries(allColors).map(([key, val]) => [`--${key}`, val]));
 
   addBase({
