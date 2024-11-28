@@ -52,7 +52,7 @@ export const Card3D: React.FC<Card3DProps> = ({ title, img, des, source, link, t
         <div className="flex justify-start items-center space-x-4 mt-4">
           {tech.map((iconUrl, index) => (
             <CardItem key={index} translateZ={70} className="w-8 h-8 flex-shrink-1">
-              <img
+              <Image
                 src={iconUrl}
                 alt={`Tech icon ${index + 1}`}
                 width={20}

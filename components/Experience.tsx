@@ -3,6 +3,7 @@ import { experience } from "@/data";
 import React, { useState } from "react";
 import { Button } from "./ui/MovingBorder";
 import { IoIosCloseCircleOutline } from "react-icons/io";
+import Image from "next/image";
 
 type ExperienceItem = {
   id: number;
@@ -36,7 +37,7 @@ const Experience = () => {
         My e<span className="text-purple">xp</span>erience
       </h1>
       <div className="w-full grid grid-cols-1 md:grid-cols-4 gap-8 justify-items-stretch">
-        {experience.map((e) => (
+        {experience.map((e,width) => (
           <Button
             key={e.id}
             duration={Math.floor(Math.random() * 10000) + 10000}
@@ -45,10 +46,10 @@ const Experience = () => {
             onClick={() => (e.id === 1 ? window.open("http://www.bngtracking.ro", "_blank") : openModal(e))}
           >
             <div className="grid grid-cols-[auto,1fr] gap-4 p-5 w-full items-center">
-              <img
+              <Image
                 src={e.thumbnail}
                 alt={e.title}
-                className="object-contain w-10 flex align-top items-start lg:w-full pr-4"
+                className="object-contain w-10 flex align-top items-start lg:w-full pr-4" width={width}
               />
               <div className="w-full">
                 <h1 className="text-start text-xl md:text-2xl font-bold">{e.title}</h1>
@@ -81,7 +82,7 @@ const Experience = () => {
               <IoIosCloseCircleOutline className="w-10 h-10 bg-black-100 rounded-full" />
             </button>
             <div className="text-center w-full">
-              <img src={selectedExperience.img} alt={selectedExperience.title} className="rounded-md" />
+            <Image src={selectedExperience.img || "/placeholder.jpg"} alt={selectedExperience.title} className="rounded-md" />
             </div>
           </div>
         </div>

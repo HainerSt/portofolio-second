@@ -1,12 +1,11 @@
 "use client";
 import { cn } from "@/lib/utils";
 import { BackgroundGradientAnimation } from "./BackgroundGradientAnimation";
-import Lottie from "react-lottie";
 import { BackgroundBoxesDemo } from "./BackgroundBoxesDemo";
 import { OrbitingCirclesDemo } from "./OrbitingCirclesDemo";
 import MagicButton from "./MagicButton";
-import animationData from "../../data/confetti.json";
 import { useEffect, useState } from "react";
+import Image from "next/image";
 
 export const BentoGrid = ({ className, children }: { className?: string; children?: React.ReactNode }) => {
   return (
@@ -72,13 +71,13 @@ export const BentoGridItem = ({
         <div className="w-full h-full absolute">
           {img && (
             // eslint-disable-next-line @next/next/no-img-element
-            <img src={img} alt={img} className={cn(imgClassName, "object-cover, object-center")} />
+            <Image src={img} alt={img} className={cn(imgClassName, "object-cover, object-center")} />
           )}
         </div>
         <div className={`absolute right-0 -bottom-5 ${id === 5 && "w-full opacity-80"}`}>
           {spareImg && (
             // eslint-disable-next-line @next/next/no-img-element
-            <img src={spareImg} alt={spareImg} className="object-cover, object-center w-full h-full" />
+            <Image src={spareImg} alt={spareImg} className="object-cover, object-center w-full h-full" />
           )}
         </div>
         {id === 6 && (
@@ -119,18 +118,6 @@ export const BentoGridItem = ({
           )}
           {id === 6 && (
             <div id="firstdiv" className="mt-5 relative flex justify-center align-center">
-              <div className="dynamic absolute -bottom-5 right-0">
-                <Lottie
-                  options={{
-                    loop: copied,
-                    autoplay: copied,
-                    animationData,
-                    rendererSettings: {
-                      preserveAspectRatio: "xMidYMid slice",
-                    },
-                  }}
-                />
-              </div>
               <MagicButton title={copied ? "Mail copied" : "Copy mail"} handleClick={handleCopy} />
             </div>
           )}

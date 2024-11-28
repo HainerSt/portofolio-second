@@ -9,8 +9,7 @@ import { FloatingNavbar } from "@/components/ui/FloatingNavbar";
 import { navItems } from "@/data";
 import React from "react";
 
-export default function Home() {
-
+export default function Page() {
   return (
     <main className="relative bg-black-100 flex justify-center items-center flex-col overflow-hidden  sm:px-10 ">
       <div className="w-full max-w-full">
