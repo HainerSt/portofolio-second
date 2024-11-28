@@ -37,7 +37,7 @@ const Experience = () => {
         My e<span className="text-purple">xp</span>erience
       </h1>
       <div className="w-full grid grid-cols-1 md:grid-cols-4 gap-8 justify-items-stretch">
-        {experience.map((e,width) => (
+        {experience.map((e) => (
           <Button
             key={e.id}
             duration={Math.floor(Math.random() * 10000) + 10000}
@@ -49,7 +49,8 @@ const Experience = () => {
               <Image
                 src={e.thumbnail}
                 alt={e.title}
-                className="object-contain w-10 flex align-top items-start lg:w-full pr-4" width={width}
+                className="object-contain w-10 flex align-top items-start lg:w-full pr-4"
+                layout="intrinsic"
               />
               <div className="w-full">
                 <h1 className="text-start text-xl md:text-2xl font-bold">{e.title}</h1>
@@ -82,7 +83,12 @@ const Experience = () => {
               <IoIosCloseCircleOutline className="w-10 h-10 bg-black-100 rounded-full" />
             </button>
             <div className="text-center w-full">
-            <Image src={selectedExperience.img || "/placeholder.jpg"} alt={selectedExperience.title} className="rounded-md" />
+              <Image
+                src={selectedExperience.img || "/placeholder.jpg"}
+                alt={selectedExperience.title}
+                layout="intrinsic"
+                className="rounded-md"
+              />
             </div>
           </div>
         </div>
