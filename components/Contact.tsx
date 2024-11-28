@@ -27,7 +27,7 @@ const Contact = () => {
           initialPerformance="medium"
         />
 
-        <div className="max-w-7xl pt-10 mt-10 mx-auto px-4 text-center z-50">
+        <div className="max-w-7xl md:pt-10 md:mt-10 mx-auto px-4 text-center z-50">
           <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold tracking-wide uppercase  bg-[#000319] select-none w-auto mx-auto inline-block px-5 pt-10">
             Let<span className="text-purple">&apos;</span>s Connect
           </h2>
