@@ -50,7 +50,9 @@ const Experience = () => {
                 src={e.thumbnail}
                 alt={e.title}
                 className="object-contain w-10 flex align-top items-start lg:w-full pr-4"
-                layout="intrinsic"
+                 layout="responsive"  
+                 width={16}
+                 height={9}
               />
               <div className="w-full">
                 <h1 className="text-start text-xl md:text-2xl font-bold">{e.title}</h1>
@@ -86,7 +88,9 @@ const Experience = () => {
               <Image
                 src={selectedExperience.img || "/placeholder.jpg"}
                 alt={selectedExperience.title}
-                layout="intrinsic"
+                 layout="responsive"
+                 width={16}
+                 height={9}
                 className="rounded-md"
               />
             </div>

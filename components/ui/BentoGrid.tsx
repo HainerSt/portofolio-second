@@ -71,13 +71,27 @@ export const BentoGridItem = ({
         <div className="w-full h-full absolute">
           {img && (
             // eslint-disable-next-line @next/next/no-img-element
-            <Image src={img} alt={img} className={cn(imgClassName, "object-cover, object-center")}  layout="intrinsic"/>
+            <Image
+              src={img}
+              alt={img}
+              className={cn(imgClassName, "object-cover, object-center")}
+              layout="responsive"
+              width={16}
+              height={9}
+            />
           )}
         </div>
         <div className={`absolute right-0 -bottom-5 ${id === 5 && "w-full opacity-80"}`}>
           {spareImg && (
             // eslint-disable-next-line @next/next/no-img-element
-            <Image src={spareImg} alt={spareImg} className="object-cover, object-center w-full h-full" layout="intrinsic" />
+            <Image
+              src={spareImg}
+              alt={spareImg}
+              className="object-cover, object-center w-full h-full"
+              layout="responsive"
+              width={16}
+              height={9}
+            />
           )}
         </div>
         {id === 6 && (
