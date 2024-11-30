@@ -1,4 +1,3 @@
-"use client";
 import { cn } from "@/lib/utils";
 import { BackgroundGradientAnimation } from "./BackgroundGradientAnimation";
 import { BackgroundBoxesDemo } from "./BackgroundBoxesDemo";

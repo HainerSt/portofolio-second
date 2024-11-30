@@ -1,4 +1,3 @@
-"use client";
 import React from "react";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
@@ -17,8 +16,10 @@ export const BoxesCore = ({ className, ...rest }: { className?: string }) => {
     "--indigo-300",
     "--violet-300",
   ];
+
   const getRandomColor = () => {
-    return colors[Math.floor(Math.random() * colors.length)];
+    const randomNum = Math.floor(Math.random() * colors.length);
+    return colors[randomNum];
   };
 
   return (

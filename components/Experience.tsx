@@ -40,9 +40,9 @@ const Experience = () => {
         {experience.map((e) => (
           <Button
             key={e.id}
-            duration={Math.floor(Math.random() * 10000) + 10000}
+            duration={10000}
             borderRadius="1.30rem"
-            className="w-full text-white border border-neutral-200 dark:border-white-200"
+            className="w-full text-white border border-neutral-200"
             onClick={() => (e.id === 1 ? window.open("http://www.bngtracking.ro", "_blank") : openModal(e))}
           >
             <div className="grid grid-cols-[auto,1fr] gap-4 p-5 w-full items-center">
@@ -50,9 +50,9 @@ const Experience = () => {
                 src={e.thumbnail}
                 alt={e.title}
                 className="object-contain w-10 flex align-top items-start lg:w-full pr-4"
-                 layout="responsive"  
-                 width={16}
-                 height={9}
+                layout="responsive"
+                width={16}
+                height={9}
               />
               <div className="w-full">
                 <h1 className="text-start text-xl md:text-2xl font-bold">{e.title}</h1>
@@ -88,9 +88,9 @@ const Experience = () => {
               <Image
                 src={selectedExperience.img || "/placeholder.jpg"}
                 alt={selectedExperience.title}
-                 layout="responsive"
-                 width={16}
-                 height={9}
+                layout="responsive"
+                width={16}
+                height={9}
                 className="rounded-md"
               />
             </div>

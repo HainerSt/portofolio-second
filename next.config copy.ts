@@ -15,9 +15,6 @@ const nextConfig = {
 // module.exports = nextConfig;
 
 module.exports = {
-  experimental: {
-    missingSuspenseWithCSRBailout: false,
-  },
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   webpack(config: { module: { rules: any[] } }) {
     // Grab the existing rule that handles SVG imports

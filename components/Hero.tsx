@@ -59,7 +59,7 @@ const Hero = () => {
               Hi! I&apos;m Stefan, a Frontend Developer based in Romania.{" "}
             </p>
             <a href="#projects">
-              <MagicButton title="Show my work" icon={<FaLocationArrow />} position="right" />
+              <MagicButton title="Show my work" icon={<FaLocationArrow />} position="right"/>
             </a>
           </div>
         </div>

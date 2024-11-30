@@ -1,4 +1,4 @@
-"use client";
+
 import React from "react";
 import { Boxes } from "../ui/BackgroundBoxes";
 import { cn } from "@/lib/utils";
