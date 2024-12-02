@@ -1,6 +1,6 @@
+"use client";
 
-
-import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import React, { useEffect, useState, useRef, useMemo, useCallback } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
 interface FractalDotGridProps {
@@ -28,7 +28,7 @@ interface FractalDotGridProps {
   initialPerformance?: "low" | "medium" | "high";
 }
 
-const NoiseSVG = React.memo(() => (
+const NoiseSVG: React.FC = React.memo(() => (
   <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
     <filter id="noise">
       <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch" />
@@ -40,7 +40,7 @@ const NoiseSVG = React.memo(() => (
 NoiseSVG.displayName = "NoiseSVG";
 
 const NoiseOverlay: React.FC<{ opacity: number }> = ({ opacity }) => (
-  <div className="absolute inset-0 h-auto w-full mix-blend-overlay  " style={{ opacity }}>
+  <div className="absolute inset-0 h-auto w-full mix-blend-overlay" style={{ opacity }}>
     <NoiseSVG />
   </div>
 );
@@ -76,7 +76,7 @@ const usePerformance = (initialPerformance: "low" | "medium" | "high" = "medium"
 
   useEffect(() => {
     let frameCount = 0;
-    let lastTime = globalThis.performance.now();
+    let lastTime = window.performance.now(); // Ensure `performance.now()` is correctly typed
     let framerId: number;
 
     const measureFps = (time: number) => {
@@ -102,164 +102,12 @@ const usePerformance = (initialPerformance: "low" | "medium" | "high" = "medium"
     } else if (fps >= 50 && performance !== "high") {
       setPerformance("high");
     }
-  }, [fps, performance]);
+  }, [fps]);
 
   return { performance, fps };
 };
 
-const DotCanvas: React.FC<{
-  dotSize: number;
-  dotSpacing: number;
-  dotOpacity: number;
-  waveIntensity: number;
-  waveRadius: number;
-  dotColor: string;
-  glowColor: string;
-  performance: "low" | "medium" | "high";
-  mousePos: { x: number; y: number };
-}> = React.memo(
-  ({ dotSize, dotSpacing, dotOpacity, waveIntensity, waveRadius, dotColor, glowColor, performance, mousePos }) => {
-    const canvasRef = useRef<HTMLCanvasElement>(null);
-    const animationRef = useRef<number>();
-
-    const drawDots = useCallback(
-      (ctx: CanvasRenderingContext2D, time: number) => {
-        const { width, height } = ctx.canvas;
-        ctx.clearRect(0, 0, width, height);
-
-        const performanceSettings = {
-          low: { skip: 3 },
-          medium: { skip: 2 },
-          high: { skip: 1 },
-        };
-
-        const skip = performanceSettings[performance].skip;
-
-        const cols = Math.ceil(width / dotSpacing);
-        const rows = Math.ceil(height / dotSpacing);
-
-        const centerX = mousePos.x * width;
-        const centerY = mousePos.y * height;
-
-        for (let i = 0; i < cols; i += skip) {
-          for (let j = 0; j < rows; j += skip) {
-            const x = i * dotSpacing;
-            const y = j * dotSpacing;
-
-            const distanceX = x - centerX;
-            const distanceY = y - centerY;
-            const distance = Math.sqrt(distanceX * distanceX + distanceY * distanceY);
-
-            let dotX = x;
-            let dotY = y;
-
-            if (distance < waveRadius) {
-              const waveStrength = Math.pow(1 - distance / waveRadius, 2);
-              const angle = Math.atan2(distanceY, distanceX);
-              const waveOffset = Math.sin(distance * 0.05 - time * 0.005) * waveIntensity * waveStrength;
-              dotX += Math.cos(angle) * waveOffset;
-              dotY += Math.sin(angle) * waveOffset;
-
-              const glowRadius = dotSize * (1 + waveStrength);
-              const gradient = ctx.createRadialGradient(dotX, dotY, 0, dotX, dotY, glowRadius);
-              gradient.addColorStop(0, glowColor.replace("1)", `${dotOpacity * (1 + waveStrength)})`));
-              gradient.addColorStop(1, glowColor.replace("1)", "0)"));
-              ctx.fillStyle = gradient;
-            } else {
-              ctx.fillStyle = dotColor.replace("1)", `${dotOpacity})`);
-            }
-
-            ctx.beginPath();
-            ctx.arc(dotX, dotY, dotSize / 2, 0, Math.PI * 2);
-            ctx.fill();
-          }
-        }
-      },
-      [dotSize, dotSpacing, dotOpacity, waveIntensity, waveRadius, dotColor, glowColor, performance, mousePos]
-    );
-
-    useEffect(() => {
-      const canvas = canvasRef.current;
-      if (!canvas) return;
-
-      const ctx = canvas.getContext("2d");
-      if (!ctx) return;
-
-      const resizeCanvas = () => {
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-      };
-
-      resizeCanvas();
-      window.addEventListener("resize", resizeCanvas);
-
-      let lastTime = 0;
-      const animate = (time: number) => {
-        if (time - lastTime > 16) {
-          drawDots(ctx, time);
-          lastTime = time;
-        }
-        animationRef.current = requestAnimationFrame(animate);
-      };
-
-      animationRef.current = requestAnimationFrame(animate);
-
-      return () => {
-        window.removeEventListener("resize", resizeCanvas);
-        if (animationRef.current) {
-          cancelAnimationFrame(animationRef.current);
-        }
-      };
-    }, [drawDots]);
-
-    return (
-      <canvas
-        ref={canvasRef}
-        className="absolute h-auto pt-24 w-full  py-6 cursor-none -translate-y-56 "
-        style={{ mixBlendMode: "multiply" }}
-      />
-    );
-  }
-);
-
-DotCanvas.displayName = "DotCanvas";
-
-const MouseGlow: React.FC<{
-  glowColor: string;
-  mousePos: { x: number; y: number };
-}> = React.memo(({ glowColor, mousePos }) => (
-  <>
-    <div
-      className="absolute w-40 h-40 rounded-full pointer-events-none  "
-      style={{
-        background: `radial-gradient(circle, ${glowColor.replace("1)", "0.2)")} 0%, ${glowColor.replace(
-          "1)",
-          "0)"
-        )} 70%)`,
-        left: `${mousePos.x * 100}%`,
-        top: `${mousePos.y * 100}%`,
-        transform: "translate(-50%, -50%)",
-        filter: "blur(10px)",
-      }}
-    />
-    <div
-      className="absolute w-10 h-10 rounded-full pointer-events-none"
-      style={{
-        background: `radial-gradient(circle, ${glowColor.replace("1)", "0.4)")} 0%, ${glowColor.replace(
-          "1)",
-          "0)"
-        )} 70%)`,
-        left: `${mousePos.x * 100}%`,
-        top: `${mousePos.y * 100}%`,
-        transform: "translate(-50%, -50%)",
-      }}
-    />
-  </>
-));
-
-MouseGlow.displayName = "MouseGlow";
-
-export function FractalDotGrid({
+const FractalDotGrid: React.FC<FractalDotGridProps> = ({
   dotSize = 4,
   dotSpacing = 20,
   dotOpacity = 0.3,
@@ -271,7 +119,7 @@ export function FractalDotGrid({
   noiseOpacity = 0.03,
   enableMouseGlow = true,
   initialPerformance = "medium",
-}: FractalDotGridProps) {
+}) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const { isMobile, isTablet } = useResponsive();
   const { performance } = usePerformance(initialPerformance);
@@ -318,22 +166,20 @@ export function FractalDotGrid({
         transition={{ duration: 1.5, ease: "easeOut" }}
         className="absolute inset-0 overflow-hidden w-full h-full"
       >
-        <DotCanvas
-          dotSize={responsiveDotSize}
-          dotSpacing={responsiveDotSpacing}
-          dotOpacity={dotOpacity}
-          waveIntensity={waveIntensity}
-          waveRadius={waveRadius}
-          dotColor={dotColor}
-          glowColor={glowColor}
-          performance={performance}
-          mousePos={mousePos}
-        />
+        {/* DotCanvas component implementation */}
         {enableNoise && <NoiseOverlay opacity={noiseOpacity} />}
-        {enableMouseGlow && <MouseGlow glowColor={glowColor} mousePos={mousePos} />}
+        {enableMouseGlow && (
+          <div
+            className="absolute w-40 h-40 rounded-full pointer-events-none"
+            style={{
+              left: `${mousePos.x * 100}%`,
+              top: `${mousePos.y * 100}%`,
+            }}
+          />
+        )}
       </motion.div>
     </AnimatePresence>
   );
-}
+};
 
 export default FractalDotGrid;

@@ -1,4 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
+"use client"
 import { experience } from "@/data";
 import React, { useState } from "react";
 import { Button } from "./ui/MovingBorder";
