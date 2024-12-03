@@ -1,30 +1,14 @@
 "use client";
 
-import React, { useEffect, useState, useRef, useMemo, useCallback } from "react";
+import React, { useEffect, useState, useRef,  useCallback } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
 interface FractalDotGridProps {
-  /** Size of each dot in pixels */
   dotSize?: number;
-  /** Spacing between dots in pixels */
   dotSpacing?: number;
-  /** Opacity of dots (0-1) */
-  dotOpacity?: number;
-  /** Intensity of the wave effect when hovering */
-  waveIntensity?: number;
-  /** Radius of the wave effect in pixels */
-  waveRadius?: number;
-  /** Color of the dots (supports any valid CSS color) */
-  dotColor?: string;
-  /** Color of the dot glow effect (supports any valid CSS color) */
-  glowColor?: string;
-  /** Enable or disable the noise overlay */
   enableNoise?: boolean;
-  /** Opacity of the noise overlay (0-1) */
   noiseOpacity?: number;
-  /** Enable or disable the mouse glow effect */
   enableMouseGlow?: boolean;
-  /** Set the initial performance level */
   initialPerformance?: "low" | "medium" | "high";
 }
 
@@ -45,6 +29,7 @@ const NoiseOverlay: React.FC<{ opacity: number }> = ({ opacity }) => (
   </div>
 );
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const useResponsive = () => {
   const [windowSize, setWindowSize] = useState({
     width: typeof window !== "undefined" ? window.innerWidth : 0,
@@ -76,7 +61,7 @@ const usePerformance = (initialPerformance: "low" | "medium" | "high" = "medium"
 
   useEffect(() => {
     let frameCount = 0;
-    let lastTime = window.performance.now(); // Ensure `performance.now()` is correctly typed
+    let lastTime = window.performance.now();
     let framerId: number;
 
     const measureFps = (time: number) => {
@@ -102,26 +87,19 @@ const usePerformance = (initialPerformance: "low" | "medium" | "high" = "medium"
     } else if (fps >= 50 && performance !== "high") {
       setPerformance("high");
     }
-  }, [fps]);
+  }, [fps, performance]);
 
   return { performance, fps };
 };
 
 const FractalDotGrid: React.FC<FractalDotGridProps> = ({
-  dotSize = 4,
-  dotSpacing = 20,
-  dotOpacity = 0.3,
-  waveIntensity = 30,
-  waveRadius = 200,
-  dotColor = "rgba(100, 100, 255, 1)",
-  glowColor = "rgba(100, 100, 255, 1)",
   enableNoise = true,
   noiseOpacity = 0.03,
   enableMouseGlow = true,
   initialPerformance = "medium",
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
-  const { isMobile, isTablet } = useResponsive();
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { performance } = usePerformance(initialPerformance);
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
 
@@ -143,30 +121,16 @@ const FractalDotGrid: React.FC<FractalDotGridProps> = ({
     return () => window.removeEventListener("mousemove", handleMouseMove);
   }, [handleMouseMove]);
 
-  const responsiveDotSize = useMemo(() => {
-    if (isMobile) return dotSize * 0.75;
-    if (isTablet) return dotSize * 0.9;
-    return dotSize;
-  }, [isMobile, isTablet, dotSize]);
-
-  const responsiveDotSpacing = useMemo(() => {
-    if (isMobile) return dotSpacing * 1.5;
-    if (isTablet) return dotSpacing * 1.25;
-    return dotSpacing;
-  }, [isMobile, isTablet, dotSpacing]);
-
   return (
     <AnimatePresence>
       <motion.div
         ref={containerRef}
-        key="fractal-dot-grid"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
         transition={{ duration: 1.5, ease: "easeOut" }}
         className="absolute inset-0 overflow-hidden w-full h-full"
       >
-        {/* DotCanvas component implementation */}
         {enableNoise && <NoiseOverlay opacity={noiseOpacity} />}
         {enableMouseGlow && (
           <div
