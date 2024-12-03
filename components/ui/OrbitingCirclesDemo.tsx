@@ -43,7 +43,7 @@ export function OrbitingCirclesDemo() {
       <OrbitingCircles
         className="size-[50px] md:size-[30px] border-none bg-transparent"
         radius={190}
-        duration={50}
+        duration={20}
         reverse
       >
         <Icons.next />
@@ -57,7 +57,7 @@ export function OrbitingCirclesDemo() {
       >
         <Icons.javascript />
       </OrbitingCircles>
-      <OrbitingCircles className="size-[60px] md:size-[30px] border-none " radius={190} duration={30} delay={2} reverse>
+      <OrbitingCircles className="size-[60px] md:size-[30px] border-none " radius={190} duration={20} delay={2} reverse>
         <Icons.react />
       </OrbitingCircles>
     </div>

@@ -114,7 +114,7 @@ export const BentoGridItem = ({
 
           {id === 2 && <BackgroundBoxesDemo />}
           {id === 3 && (
-            <>
+            <div>
               <div className="flex absolute -right-28 lg:right-0 top-0 w-fit  object-scale-down  ">
                 <OrbitingCirclesDemo />
               </div>
@@ -127,7 +127,7 @@ export const BentoGridItem = ({
                   <li>Next.JS</li>
                 </ul>
               </div>
-            </>
+            </div>
           )}
           {id === 6 && (
             <div id="firstdiv" className="mt-5 relative flex justify-center align-center">

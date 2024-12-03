@@ -2,33 +2,18 @@
 import React from "react";
 import { SlideModal } from "./ui/SlideModal";
 import { TextGenerateEffect } from "./ui/TextGenerateEffect";
-import FractalDotGrid from "./ui/FractalDotGridProps";
-
 const Contact = () => {
   const words =
     "I'm always excited to chat about new opportunities! Feel free to reach out through any platform below.";
   return (
     <footer
-      className="w-full h-full static flex flex-col justify-center items-center text-center bg-gradient-to-b text-white  rounded-lg"
+      className="w-full h-full  flex-col j text-center  text-white  rounded-lg
+       dark:bg-[#000319] bg-white  dark:bg-dot-white/[0.2] bg-dot-black/[0.2] relative flex items-center justify-center"
       id="contact"
     >
       <div className="w-full h-full relative z-30 mx-auto">
-        <FractalDotGrid
-          dotSize={7}
-          dotSpacing={12}
-          dotOpacity={0.3}
-          waveIntensity={1}
-          waveRadius={0}
-          dotColor="rgba(100, 100, 255, 1)"
-          glowColor="rgba(100, 100, 255, 1)"
-          enableNoise={false}
-          noiseOpacity={0.01}
-          enableMouseGlow={true}
-          initialPerformance="medium"
-        />
-
         <div className="max-w-7xl md:pt-10 md:mt-10 mx-auto px-4 text-center z-50">
-          <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold tracking-wide uppercase  bg-[#000319] select-none w-auto mx-auto inline-block px-5 pt-10">
+          <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold tracking-wide uppercase  bg-[#000319] select-none w-auto mx-auto inline-block px-5 ">
             Let<span className="text-purple">&apos;</span>s Connect
           </h2>
 
@@ -37,7 +22,7 @@ const Contact = () => {
             className="text-sm md:text-md lg:text-xl px-5 mb-10 bg-[#000319] select-none w-auto mx-auto inline-block my-5 lg:my-10"
           />
           <SlideModal />
-          <p className="text-xs md:text-sm text-gray-400 bg-[#000319] select-none w-auto mx-auto inline-block  mt-10 mb-10">
+          <p className="text-xs md:text-sm text-gray-400 bg-[#000319] select-none w-auto mx-auto inline-block  mt-10 mb-4">
             &copy; 2024 Hainer Stefan. All rights reserved.
           </p>
         </div>
