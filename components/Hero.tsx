@@ -4,7 +4,6 @@ import { Spotlight } from "./ui/Spotlight";
 import { TextGenerateEffect } from "./ui/TextGenerateEffect";
 import MagicButton from "./ui/MagicButton";
 import { FaLocationArrow, FaChevronDown } from "react-icons/fa";
-import { ModeToggle } from "./ui/ModeToggle";
 
 const Hero = () => {
   const [showChevron, setShowChevron] = useState(true);
