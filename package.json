@@ -48,11 +48,15 @@
     "@types/tailwindcss": "^3.0.11",
     "@types/three": "^0.169.0",
     "autoprefixer": "^10.4.20",
+    "envify": "^4.1.0",
     "eslint": "^8",
     "eslint-config-next": "15.0.2",
     "postcss": "^8.4.49",
     "tailwindcss": "^3.4.15",
-    "typescript": "^5"
+    "terser": "^5.36.0",
+    "terser-brunch": "^4.1.0",
+    "typescript": "^5",
+    "uglifyify": "^5.0.2"
   },
   "overrides": {
     "react-is": "^19.0.0-rc-69d4b800-20241021"

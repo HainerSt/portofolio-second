@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
@@ -17,11 +18,6 @@ export const BoxesCore = ({ className, ...rest }: { className?: string }) => {
     "--violet-300",
   ];
 
-  const getRandomColor = () => {
-    const randomNum = Math.floor(Math.random() * colors.length);
-    return colors[randomNum];
-  };
-
   return (
     <div
       style={{
@@ -38,7 +34,7 @@ export const BoxesCore = ({ className, ...rest }: { className?: string }) => {
           {cols.map((_, j) => (
             <motion.div
               whileHover={{
-                backgroundColor: `var(${getRandomColor()})`,
+                backgroundColor: `var(${Math.floor(Math.random() * colors.length)})`,
                 transition: { duration: 0 },
               }}
               animate={{

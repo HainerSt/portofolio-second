@@ -4,7 +4,7 @@ import { experience } from "@/data";
 import React, { useState } from "react";
 import { Button } from "./ui/MovingBorder";
 import { IoIosCloseCircleOutline } from "react-icons/io";
-import Image from "next/image";
+import Image from "next/legacy/image";
 
 type ExperienceItem = {
   id: number;
@@ -89,10 +89,10 @@ const Experience = () => {
               <Image
                 src={selectedExperience.img || "/placeholder.jpg"}
                 alt={selectedExperience.title}
+                className="rounded-md"
                 layout="responsive"
                 width={16}
                 height={9}
-                className="rounded-md"
               />
             </div>
           </div>

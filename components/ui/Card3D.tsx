@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
-import Image from "next/image";
+import Image from "next/legacy/image";
 import React from "react";
 import { CardBody, CardContainer, CardItem } from "../ui/3d-card";
 import { cn } from "@/lib/utils"; // Assuming cn is a utility function for conditionally combining classnames

@@ -4,7 +4,7 @@ import { BackgroundBoxesDemo } from "./BackgroundBoxesDemo";
 import { OrbitingCirclesDemo } from "./OrbitingCirclesDemo";
 import MagicButton from "./MagicButton";
 import { useEffect, useState } from "react";
-import Image from "next/image";
+import Image from "next/legacy/image";
 
 export const BentoGrid = ({ className, children }: { className?: string; children?: React.ReactNode }) => {
   return (
@@ -74,7 +74,6 @@ export const BentoGridItem = ({
               src={img}
               alt={img}
               className={cn(imgClassName, "object-cover, object-center")}
-              layout="responsive"
               width={16}
               height={9}
             />
@@ -87,7 +86,6 @@ export const BentoGridItem = ({
               src={spareImg}
               alt={spareImg}
               className="object-cover, object-center w-full h-full"
-              layout="responsive"
               width={16}
               height={9}
             />
@@ -114,7 +112,7 @@ export const BentoGridItem = ({
 
           {id === 2 && <BackgroundBoxesDemo />}
           {id === 3 && (
-            <div>
+            <>
               <div className="flex absolute -right-28 lg:right-0 top-0 w-fit  object-scale-down  ">
                 <OrbitingCirclesDemo />
               </div>
@@ -127,7 +125,7 @@ export const BentoGridItem = ({
                   <li>Next.JS</li>
                 </ul>
               </div>
-            </div>
+            </>
           )}
           {id === 6 && (
             <div id="firstdiv" className="mt-5 relative flex justify-center align-center">

@@ -4,6 +4,7 @@ import { Spotlight } from "./ui/Spotlight";
 import { TextGenerateEffect } from "./ui/TextGenerateEffect";
 import MagicButton from "./ui/MagicButton";
 import { FaLocationArrow, FaChevronDown } from "react-icons/fa";
+import { ModeToggle } from "./ui/ModeToggle";
 
 const Hero = () => {
   const [showChevron, setShowChevron] = useState(true);
@@ -46,6 +47,7 @@ const Hero = () => {
             <div className="absolute pointer-events-none inset-0 flex items-center justify-center dark:bg-black-100 bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
           </div>
         </div>
+        <div></div>
         <div className="h-[60vh] flex justify-center relative z-10">
           <div className="max-w-[89vw] md:max-w-2xl lg:max-w-[60vw] flex flex-col items-center justify-center mt-36 ">
             <h1 className="uppercase tracking-widest text-sm text-center text-blue-100 max-w-80 bg-[#000319] bg-opacity-50">
