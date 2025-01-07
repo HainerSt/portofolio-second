@@ -1,4 +1,5 @@
 import { withSentryConfig } from "@sentry/nextjs";
+import bundleAnalyzer from "@next/bundle-analyzer";
 
 const nextConfig = {
   output: "export",
@@ -7,12 +8,12 @@ const nextConfig = {
   },
 };
 
-// module.exports = nextConfig;
+const withBundleAnalyzer = bundleAnalyzer({
+  enabled: process.env.ANALYZE === "true",
+});
+module.exports = withBundleAnalyzer({});
 
-module.exports = {
-  experimental: {
-    missingSuspenseWithCSRBailout: false,
-  },
+module.exports = withBundleAnalyzer({
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   webpack(config: { module: { rules: any[] } }) {
     // Grab the existing rule that handles SVG imports
@@ -40,7 +41,7 @@ module.exports = {
     return config;
   },
   // ...other config
-};
+});
 
 export default withSentryConfig(nextConfig, {
   // For all available options, see:
