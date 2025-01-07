@@ -1,35 +1,10 @@
-import React, { useState, useEffect } from "react";
 import { Spotlight } from "./ui/Spotlight";
 import { TextGenerateEffect } from "./ui/TextGenerateEffect";
 import MagicButton from "./ui/MagicButton";
-import { FaLocationArrow, FaChevronDown } from "react-icons/fa";
+import { FaLocationArrow } from "react-icons/fa";
 
 const Hero = () => {
-  const [showChevron, setShowChevron] = useState(true);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY === 0) {
-        setShowChevron(true);
-      } else {
-        setShowChevron(false);
-      }
-    };
-
-    const debouncedHandleScroll = debounce(handleScroll, 100);
-    window.addEventListener("scroll", debouncedHandleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", debouncedHandleScroll);
-    };
-  }, []);
-
-  const scrollToContent = () => {
-    window.scrollTo({
-      top: window.innerHeight,
-      behavior: "smooth",
-    });
-  };
+  const words = "Transforming Ideas into Experiences.";
 
   return (
     <>
@@ -51,8 +26,8 @@ const Hero = () => {
               Hainer Stefan&apos;s Portofolio.
             </h1>
             <TextGenerateEffect
-              className="text-center  text-[40px] md:text-5xl lg:text-6xl lg:bg-[#000319] lg:bg-opacity-50 "
-              words="Transforming Ideas into Experiences"
+              className="text-center text-[40px] md:text-5xl lg:text-6xl lg:bg-[#000319] lg:bg-opacity-50 "
+              words={words}
             />
             <p className="text-center md:tracking-wider mb-4 text-sm md:text-lg lg:text-2xl bg-[#000319] bg-opacity-50">
               Hi! I&apos;m Stefan, a Frontend Developer based in Romania.{" "}
@@ -62,29 +37,9 @@ const Hero = () => {
             </a>
           </div>
         </div>
-
-        <div
-          className={`absolute -bottom-32 left-1/2 transform -translate-x-1/2 cursor-pointer z-20 transition-opacity duration-500 ${
-            showChevron ? "opacity-100" : "opacity-0 pointer-events-none"
-          }`}
-          onClick={scrollToContent}
-        >
-          <FaChevronDown className="text-3xl text-blue-100 animate-bounce mb-32 pb-10" />
-        </div>
       </div>{" "}
     </>
   );
 };
-
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-function debounce<T extends (...args: any[]) => void>(func: T, wait: number): (...args: Parameters<T>) => void {
-  let timeout: NodeJS.Timeout | null = null;
-  return (...args: Parameters<T>): void => {
-    if (timeout) {
-      clearTimeout(timeout);
-    }
-    timeout = setTimeout(() => func(...args), wait);
-  };
-}
 
 export default Hero;

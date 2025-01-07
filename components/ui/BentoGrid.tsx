@@ -2,9 +2,8 @@ import { cn } from "@/lib/utils";
 import { BackgroundGradientAnimation } from "./BackgroundGradientAnimation";
 import { BackgroundBoxesDemo } from "./BackgroundBoxesDemo";
 import { OrbitingCirclesDemo } from "./OrbitingCirclesDemo";
-import MagicButton from "./MagicButton";
-import { useEffect, useState } from "react";
 import Image from "next/legacy/image";
+import CopyButton from "./CopyButton";
 
 export const BentoGrid = ({ className, children }: { className?: string; children?: React.ReactNode }) => {
   return (
@@ -37,23 +36,6 @@ export const BentoGridItem = ({
   titleClassName?: string;
   spareImg?: string;
 }) => {
-  const [copied, setCopied] = useState(false);
-
-  const handleCopy = () => {
-    navigator.clipboard.writeText("hainer.stefan@gmail.com");
-    setCopied(true);
-  };
-
-  useEffect(() => {
-    if (copied) {
-      const timer = setTimeout(() => {
-        setCopied(false);
-      }, 5000);
-
-      return () => clearTimeout(timer);
-    }
-  }, [copied]);
-
   return (
     <div
       className={cn(
@@ -129,7 +111,7 @@ export const BentoGridItem = ({
           )}
           {id === 6 && (
             <div id="firstdiv" className="mt-5 relative flex justify-center align-center">
-              <MagicButton title={copied ? "Mail copied" : "Copy mail"} handleClick={handleCopy} />
+              <CopyButton />
             </div>
           )}
         </div>
