@@ -1,4 +1,3 @@
-
 import React from "react";
 import { Boxes } from "../ui/BackgroundBoxes";
 import { cn } from "@/lib/utils";
@@ -6,7 +5,7 @@ import "../../app/globals.css";
 
 export function BackgroundBoxesDemo() {
   return (
-    <div className="h-full w-full overflow-hidden flex flex-col items-center justify-center rounded-lg cursor-crosshair hover-effect-parent">
+    <div className="h-full w-full overflow-hidden flex flex-col items-center justify-center rounded-lg  hover-effect-parent">
       <div className="absolute inset-0 w-[200vw] h-full z-20 [mask-image:radial-gradient(transparent,white)] pointer-events-none" />
 
       <Boxes />

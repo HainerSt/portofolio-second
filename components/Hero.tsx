@@ -25,10 +25,7 @@ const Hero = () => {
             <h1 className="uppercase tracking-widest text-sm text-center text-blue-100 max-w-80 bg-[#000319] bg-opacity-50">
               Hainer Stefan&apos;s Portofolio.
             </h1>
-            <TextGenerateEffect
-              className="text-center text-[40px] md:text-5xl lg:text-6xl lg:bg-[#000319] lg:bg-opacity-50 "
-              words={words}
-            />
+            <TextGenerateEffect className="text-center text-[40px] md:text-5xl lg:text-6xl  " words={words} />
             <p className="text-center md:tracking-wider mb-4 text-sm md:text-lg lg:text-2xl bg-[#000319] bg-opacity-50">
               Hi! I&apos;m Stefan, a Frontend Developer based in Romania.{" "}
             </p>

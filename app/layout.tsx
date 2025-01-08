@@ -15,6 +15,7 @@ const geistMono = localFont({
   weight: "100 900",
 });
 
+
 export const metadata: Metadata = {
   title: "Hainer's Portofolio",
   description: "Hainer Stefan - Front-End Developer",
