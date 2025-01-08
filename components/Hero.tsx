@@ -26,7 +26,7 @@ const Hero = () => {
               Hainer Stefan&apos;s Portofolio.
             </h1>
             <TextGenerateEffect className="text-center text-[40px] md:text-5xl lg:text-6xl  " words={words} />
-            <p className="text-center md:tracking-wider mb-4 text-sm md:text-lg lg:text-2xl bg-[#000319] bg-opacity-50">
+            <p className="text-center md:tracking-wider mt-8 text-sm md:text-lg lg:text-2xl bg-[#000319] bg-opacity-50">
               Hi! I&apos;m Stefan, a Frontend Developer based in Romania.{" "}
             </p>
             <a href="#projects">

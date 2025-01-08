@@ -3,7 +3,7 @@ import { BackgroundGradientAnimation } from "./BackgroundGradientAnimation";
 import { BackgroundBoxesDemo } from "./BackgroundBoxesDemo";
 import { OrbitingCirclesDemo } from "./OrbitingCirclesDemo";
 import Image from "next/legacy/image";
-import CopyButton from "./CopyButton";
+import { CopyStatusButton } from "./CopyStatusButton";
 
 export const BentoGrid = ({ className, children }: { className?: string; children?: React.ReactNode }) => {
   return (
@@ -99,7 +99,7 @@ export const BentoGridItem = ({
                 <OrbitingCirclesDemo />
               </div>
               <div className=" text-3xl  ">
-                <ul className="z-50 backdrop-blur-xl lg:text-3xl md:text-base inline-block px-2 py-1">
+                <ul className="z-50 backdrop-blur-xl sm:text-sm md:text-base lg:text-3xl  inline-block px-2 py-1">
                   <li>HTML</li>
                   <li>CSS</li>
                   <li>Javascript</li>
@@ -111,7 +111,7 @@ export const BentoGridItem = ({
           )}
           {id === 6 && (
             <div id="firstdiv" className="mt-5 relative flex justify-center align-center">
-              <CopyButton />
+              <CopyStatusButton buttonColor="black" initialText="Copy Mail" changeText="Mail Copied" />
             </div>
           )}
         </div>

@@ -1,63 +1,20 @@
-import OrbitingCircles from "./OrbitingCircles";
+import { OrbitingCircles } from "./OrbitingCircles";
 
 export function OrbitingCirclesDemo() {
   return (
     <div className="relative flex h-[500px] w-[500px] flex-col items-center justify-center overflow-hidden ">
       <span className="pointer-events-none whitespace-pre-wrap text-center text-8xl font-semibold leading-none text-transparent "></span>
 
-      {/* Inner Circles */}
-      <OrbitingCircles
-        className="size-[30px] md:size-[20px] border-none bg-transparent"
-        duration={20}
-        delay={17}
-        radius={80}
-      >
+      <OrbitingCircles iconSize={30} radius={80}>
         <Icons.css />
-      </OrbitingCircles>
-      <OrbitingCircles
-        className="size-[40px] md:size-[30px] border-none bg-transparent"
-        duration={20}
-        delay={12}
-        radius={80}
-      >
         <Icons.html />
       </OrbitingCircles>
-      <OrbitingCircles
-        className="size-[30px] md:size-[20px] border-none bg-transparent"
-        duration={20}
-        delay={5}
-        radius={80}
-      >
-        <Icons.git />
-      </OrbitingCircles>
-      <OrbitingCircles
-        className="size-[40px] md:size-[30px] border-none bg-transparent"
-        duration={20}
-        delay={7}
-        radius={130}
-      >
-        <Icons.github />
-      </OrbitingCircles>
 
-      {/* Outer Circles (reverse) */}
-      <OrbitingCircles
-        className="size-[50px] md:size-[30px] border-none bg-transparent"
-        radius={190}
-        duration={20}
-        reverse
-      >
+      <OrbitingCircles className=" border-none bg-transparent" iconSize={40} duration={20} delay={1} radius={150}>
+        <Icons.github />
+        <Icons.git />
         <Icons.next />
-      </OrbitingCircles>
-      <OrbitingCircles
-        className="size-[50px] md:size-[30px] border-none "
-        radius={190}
-        duration={20}
-        delay={20}
-        reverse
-      >
         <Icons.javascript />
-      </OrbitingCircles>
-      <OrbitingCircles className="size-[60px] md:size-[30px] border-none " radius={190} duration={20} delay={2} reverse>
         <Icons.react />
       </OrbitingCircles>
     </div>
@@ -90,9 +47,9 @@ const Icons = {
   ),
   react: () => (
     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="-3.2 -3.2 38.4 38.4">
+      <title>{"React"}</title>
       <path
         fill="#fff"
-        strokeWidth={0}
         d="M18.798-2.408a5.4 5.4 0 0 0-5.596 0L.602 5.229A5.4 5.4 0 0 0-2 9.846v12.308A5.4 5.4 0 0 0 .602 26.77l12.6 7.637a5.4 5.4 0 0 0 5.596 0l12.6-7.637A5.4 5.4 0 0 0 34 22.154V9.846a5.4 5.4 0 0 0-2.602-4.617l-12.6-7.637z"
       />
       <g fill="#53C1DE">
@@ -107,6 +64,7 @@ const Icons = {
   ),
   html: () => (
     <svg xmlns="http://www.w3.org/2000/svg" xmlSpace="preserve" width={100} height={100} viewBox="0 0 291.31 291.31">
+      <title>{"HTML"}</title>
       <path
         d="M9.099 0h273.112L254.9 263.999 154.759 291.31h-18.207L36.41 263.999 9.099 0z"
         style={{

@@ -22,7 +22,10 @@ export const Card3D: React.FC<Card3DProps> = ({ title, img, des, source, link, t
         )}
       >
         {/* Title */}
-        <CardItem translateZ={50} className="text-xl md:text-xl font-bold text-neutral-600 dark:text-white flex-grow">
+        <CardItem
+          translateZ={50}
+          className="text-xl md:text-xl font-bold text-neutral-600 dark:text-white flex-grow justify-center items-center "
+        >
           {title}
         </CardItem>
 
@@ -37,26 +40,24 @@ export const Card3D: React.FC<Card3DProps> = ({ title, img, des, source, link, t
 
         {/* Image */}
         <CardItem translateZ={90} className="w-full mt-4">
-          <a href={link} target="_blank" rel="noopener noreferrer">
-            <Image
-              src={img}
-              alt={title}
-              height={1000}
-              width={1000}
-              className="h-40 w-full object-cover rounded-xl group-hover/card:shadow-xl"
-            />
-          </a>
+          <Image
+            src={img}
+            alt={title}
+            height={1000}
+            width={1400}
+            className="h-40 w-full object-cover rounded-xl group-hover/card:shadow-xl"
+          />
         </CardItem>
 
         {/* Technology Icons (SVGs) */}
-        <div className="flex justify-start items-center space-x-4 mt-4">
+        <div className="flex justify-center items-center space-x-4 mt-4">
           {tech.map((iconUrl, index) => (
             <CardItem key={index} translateZ={70} className="w-8 h-8 flex-shrink-1">
               <Image
                 src={iconUrl}
                 alt={`Tech icon ${index + 1}`}
-                width={20}
-                height={20}
+                width={30}
+                height={30}
                 className="w-full h-full object-contain"
               />
             </CardItem>
@@ -64,7 +65,7 @@ export const Card3D: React.FC<Card3DProps> = ({ title, img, des, source, link, t
         </div>
 
         {/* Links section */}
-        <div className="flex justify-between items-center mt-8 gap-4">
+        <div className="flex justify-between items-center mt-8 gap-4 mx-5">
           <CardItem
             translateZ={10}
             as="a"

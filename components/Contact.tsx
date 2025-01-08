@@ -3,8 +3,7 @@ import React from "react";
 import { SlideModal } from "./ui/SlideModal";
 import { TextGenerateEffect } from "./ui/TextGenerateEffect";
 const Contact = () => {
-  const words =
-    "I'm always excited to chat about new opportunities! Feel free to reach out through any platform below.";
+  const words = "Let's chat about new opportunities! Feel free to reach out through any platform below.";
   return (
     <footer
       className="w-full h-full  flex-col j text-center  text-white  rounded-lg
@@ -19,7 +18,7 @@ const Contact = () => {
 
           <TextGenerateEffect
             words={words}
-            className="text-sm md:text-md lg:text-xl px-5 mb-10 bg-[#000319] select-none w-auto mx-auto inline-block my-5 lg:my-10"
+            className="text-sm md:text-md lg:text-md px-5 mb-10 bg-[#000319] select-none w-auto mx-auto inline-block my-5 lg:my-10"
           />
           <SlideModal />
           <p className="text-xs md:text-sm text-gray-400 bg-[#000319] select-none w-auto mx-auto inline-block  mt-10 mb-4">

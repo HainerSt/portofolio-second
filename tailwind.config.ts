@@ -90,6 +90,7 @@ const config = {
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
       },
+
       keyframes: {
         "accordion-down": {
           from: {
@@ -176,10 +177,12 @@ const config = {
         },
         orbit: {
           "0%": {
-            transform: "rotate(0deg) translateY(calc(var(--radius) * 1px)) rotate(0deg)",
+            transform:
+              "rotate(calc(var(--angle) * 1deg)) translateY(calc(var(--radius) * 1px)) rotate(calc(var(--angle) * -1deg))",
           },
           "100%": {
-            transform: "rotate(360deg) translateY(calc(var(--radius) * 1px)) rotate(-360deg)",
+            transform:
+              "rotate(calc(var(--angle) * 1deg + 360deg)) translateY(calc(var(--radius) * 1px)) rotate(calc((var(--angle) * -1deg) - 360deg))",
           },
         },
       },
