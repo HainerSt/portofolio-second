@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/no-require-imports */
 import type { Config } from "tailwindcss";
 
@@ -230,15 +231,10 @@ const config = {
   ],
 } satisfies Config;
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 function addVariablesForColors({ addBase, theme }: PluginAPI) {
-  // Make sure flattenColorPalette returns a valid object type
-  const allColors = flattenColorPalette(theme("colors")) as { [key: string]: string };
-
+  const allColors = flattenColorPalette(theme("colors")) as Record<string, string>;
   const newVars = Object.fromEntries(Object.entries(allColors).map(([key, val]) => [`--${key}`, val]));
-
-  addBase({
-    ":root": newVars,
-  });
 }
 
 export default config;

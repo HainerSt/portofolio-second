@@ -1,52 +1,52 @@
 "use client";
-import { FaChevronDown } from "react-icons/fa";
-import React, { useState, useEffect, useCallback } from "react";
+import { useState, useEffect } from "react";
 
-const Chevron: React.FC = () => {
-  const [showChevron, setShowChevron] = useState(true);
-
-  const scrollToContent = () => {
-    window.scrollTo({
-      top: window.innerHeight,
-      behavior: "smooth",
-    });
-  };
-
-  const handleScroll = useCallback(() => {
-    setShowChevron(window.scrollY === 0);
-  }, []);
+const ChevronDown: React.FC = () => {
+  const [isAtTop, setIsAtTop] = useState<boolean>(true);
 
   useEffect(() => {
-    const debouncedHandleScroll = debounce(handleScroll, 100);
-    window.addEventListener("scroll", debouncedHandleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", debouncedHandleScroll);
+    // Ensure this effect runs only on the client
+    const handleScroll = () => {
+      setIsAtTop(window.scrollY === 0);
     };
-  }, [handleScroll]);
+
+    // Add scroll listener
+    window.addEventListener("scroll", handleScroll);
+
+    // Set initial state (in case user starts not at the top)
+    handleScroll();
+
+    // Cleanup listener on unmount
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   return (
-    <div
-      className={`absolute -bottom-32 left-1/2 transform -translate-x-1/2 cursor-pointer z-20 transition-opacity duration-500 ${
-        showChevron ? "opacity-100" : "opacity-0 pointer-events-none"
-      }`}
-      onClick={scrollToContent}
-    >
-      <FaChevronDown className="text-3xl text-blue-100 animate-bounce mb-32 pb-10" />
+    <div style={{ position: "fixed", bottom: "20px", left: "50%", transform: "translateX(-50%)", zIndex: 1000 }}>
+      {isAtTop && (
+        <div style={{ cursor: "pointer", animation: "fade-in 0.5s ease" }}>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="40px" height="40px">
+            <path
+              fillRule="evenodd"
+              d="M12 15.293l5.646-5.647a.5.5 0 01.708.708l-6 6a.5.5 0 01-.708 0l-6-6a.5.5 0 11.708-.708L12 15.293z"
+              clipRule="evenodd"
+            />
+          </svg>
+        </div>
+      )}
+      <style jsx>{`
+        @keyframes fade-in {
+          from {
+            opacity: 0;
+          }
+          to {
+            opacity: 1;
+          }
+        }
+      `}</style>
     </div>
   );
 };
 
-// Generic debounce function with TypeScript support
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-function debounce<T extends (...args: any[]) => void>(func: T, wait: number): (...args: Parameters<T>) => void {
-  let timeout: ReturnType<typeof setTimeout> | null = null;
-  return (...args: Parameters<T>): void => {
-    if (timeout) {
-      clearTimeout(timeout);
-    }
-    timeout = setTimeout(() => func(...args), wait);
-  };
-}
-
-export default Chevron;
+export default ChevronDown;

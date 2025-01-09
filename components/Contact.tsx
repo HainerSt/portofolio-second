@@ -1,9 +1,7 @@
 "use client";
 import React from "react";
 import { SlideModal } from "./ui/SlideModal";
-import { TextGenerateEffect } from "./ui/TextGenerateEffect";
 const Contact = () => {
-  const words = "Let's chat about new opportunities! Feel free to reach out through any platform below.";
   return (
     <footer
       className="w-full h-full  flex-col j text-center  text-white  rounded-lg
@@ -15,11 +13,9 @@ const Contact = () => {
           <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold tracking-wide uppercase  bg-[#000319] select-none w-auto mx-auto inline-block px-5 ">
             Let<span className="text-purple">&apos;</span>s Connect
           </h2>
+          {/* className="text-sm md:text-md lg:text-md px-5 mb-10 bg-[#000319] select-none w-auto mx-auto inline-block my-5
+          lg:my-10" */}
 
-          <TextGenerateEffect
-            words={words}
-            className="text-sm md:text-md lg:text-md px-5 mb-10 bg-[#000319] select-none w-auto mx-auto inline-block my-5 lg:my-10"
-          />
           <SlideModal />
           <p className="text-xs md:text-sm text-gray-400 bg-[#000319] select-none w-auto mx-auto inline-block  mt-10 mb-4">
             &copy; 2024 Hainer Stefan. All rights reserved.

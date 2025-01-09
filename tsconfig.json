@@ -23,6 +23,6 @@
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "components/ui/GlobeGh.jsx","svgr.d.ts",
-  ".next/types/**/*.ts", "next.config.ts"],
+  ".next/types/**/*.ts", "next.config.ts", "tailwind.config.js"],
   "exclude": ["node_modules"]
 }

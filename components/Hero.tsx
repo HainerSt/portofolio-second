@@ -1,11 +1,9 @@
 import { Spotlight } from "./ui/Spotlight";
-import { TextGenerateEffect } from "./ui/TextGenerateEffect";
 import MagicButton from "./ui/MagicButton";
 import { FaLocationArrow } from "react-icons/fa";
+import ChevronDown from "./ui/Chevron";
 
 const Hero = () => {
-  const words = "Transforming Ideas into Experiences.";
-
   return (
     <>
       <div className=" h-[90vh] relative mt-20 ">
@@ -22,10 +20,7 @@ const Hero = () => {
         </div>
         <div className="h-[60vh] flex justify-center relative z-10">
           <div className="max-w-[89vw] md:max-w-2xl lg:max-w-[60vw] flex flex-col items-center justify-center mt-36 ">
-            <h1 className="uppercase tracking-widest text-sm text-center text-blue-100 max-w-80 bg-[#000319] bg-opacity-50">
-              Hainer Stefan&apos;s Portofolio.
-            </h1>
-            <TextGenerateEffect className="text-center text-[40px] md:text-5xl lg:text-6xl  " words={words} />
+            <h1 className="sm:text-xl md:text-6xl lg:text-8xl">Hainer Stefan&apos;s Portofolio</h1>
             <p className="text-center md:tracking-wider mt-8 text-sm md:text-lg lg:text-2xl bg-[#000319] bg-opacity-50">
               Hi! I&apos;m Stefan, a Frontend Developer based in Romania.{" "}
             </p>
@@ -34,7 +29,8 @@ const Hero = () => {
             </a>
           </div>
         </div>
-      </div>{" "}
+      </div>
+      <ChevronDown />
     </>
   );
 };
