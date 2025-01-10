@@ -1,9 +1,9 @@
 import { cn } from "@/lib/utils";
 import { BackgroundGradientAnimation } from "./BackgroundGradientAnimation";
-import { BackgroundBoxesDemo } from "./BackgroundBoxesDemo";
 import { OrbitingCirclesDemo } from "./OrbitingCirclesDemo";
 import Image from "next/legacy/image";
 import { CopyStatusButton } from "./CopyStatusButton";
+import { Boxes } from "./BackgroundBoxes";
 
 export const BentoGrid = ({ className, children }: { className?: string; children?: React.ReactNode }) => {
   return (
@@ -87,7 +87,20 @@ export const BentoGridItem = ({
             {title}
           </div>
 
-          {id === 2 && <BackgroundBoxesDemo />}
+          {id === 2 && (
+            <div className="h-40 relative w-full overflow-hidden bg-slate-900 flex flex-col items-center justify-center rounded-lg">
+              <div className="absolute inset-0 w-full h-full bg-slate-900 z-20 [mask-image:radial-gradient(transparent,white)] pointer-events-none" />
+              <Boxes />
+
+              <h1 className={cn("md:text-4xl text-xl text-white relative z-20")}>
+                {" "}
+                I&apos;m very <span className="swirl-effect">flexible</span>.
+              </h1>
+              <p className="text-center mt-2 text-neutral-300 relative z-20">
+                I can easily adjust my schedule to align with different regions and ensure seamless collaboration.
+              </p>
+            </div>
+          )}
           {id === 3 && (
             <>
               <div className="flex absolute -right-28 lg:right-0 top-0 w-fit  object-scale-down  ">

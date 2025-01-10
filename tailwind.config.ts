@@ -232,9 +232,13 @@ const config = {
 } satisfies Config;
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-function addVariablesForColors({ addBase, theme }: PluginAPI) {
-  const allColors = flattenColorPalette(theme("colors")) as Record<string, string>;
+function addVariablesForColors({ addBase, theme }: any) {
+  const allColors = flattenColorPalette(theme("colors")) as Record<string, string>;;
   const newVars = Object.fromEntries(Object.entries(allColors).map(([key, val]) => [`--${key}`, val]));
+
+  addBase({
+    ":root": newVars,
+  });
 }
 
 export default config;
