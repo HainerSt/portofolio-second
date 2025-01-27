@@ -1,7 +1,7 @@
 import { Spotlight } from "./ui/Spotlight";
 import MagicButton from "./ui/MagicButton";
 import { FaLocationArrow } from "react-icons/fa";
-import ChevronDown from "./ui/Chevron";
+import ChevronDown from "./ui/ChevronDown";
 
 
 const Hero = () => {
