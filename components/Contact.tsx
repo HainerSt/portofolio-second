@@ -18,7 +18,7 @@ const Contact = () => {
 
           <SlideModal />
           <p className="text-xs md:text-sm text-gray-400 bg-[#000319] select-none w-auto mx-auto inline-block  mt-10 mb-4">
-            &copy; 2024 Hainer Stefan. All rights reserved.
+            &copy; 2025 Hainer Stefan. All rights reserved.
           </p>
         </div>
       </div>

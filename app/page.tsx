@@ -22,8 +22,8 @@ export default function Page() {
         <FloatingNavbar navItems={navItems} />
         <Hero />
         <Grid />
-        <Projects />
         <Experience />
+        <Projects />
         <Contact />
       </div>
     </main>

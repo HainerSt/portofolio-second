@@ -20,7 +20,7 @@ export const CopyStatusButton: React.FC<CopyStatusButtonProps> = ({
 
   const handleCopy = () => {
     // Copy to clipboard
-    navigator.clipboard.writeText("hainer.stefan@gmail").then(() => {
+    navigator.clipboard.writeText("hainer.stefan@gmail.com").then(() => {
       setCopied(true); // Set copied to true when successfully copied to clipboard
     });
   };

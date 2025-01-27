@@ -24,8 +24,8 @@ const profilelinks = [
 
 export function SlideModal() {
   return (
-    <div className="flex items-center justify-center">
-      <div className="flex flex-row gap-12 lg:gap-8 ">
+    <div className="flex items-center justify-center mt-10">
+      <div className="flex flex-row gap-12 lg:gap-10 ">
         {profilelinks.map((profile) => (
           <a
             key={profile.id}

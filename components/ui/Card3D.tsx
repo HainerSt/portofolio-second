@@ -18,7 +18,7 @@ export const Card3D: React.FC<Card3DProps> = ({ title, img, des, source, link, t
     <CardContainer className="inter-var mx-auto w-full md:max-w-full lg:max-w-[95%] my-0 py-0 flex flex-col h-full ">
       <CardBody
         className={cn(
-          " relative group/card dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:border-white/[0.2] border-black/[0.1] w-full sm:w-[95%] lg:w-[95%] rounded-xl p-8 border gap-4 lg:gap-8 flex flex-col justify-between h-full"
+          " relative group/card dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:border-white/[0.2] border-black/[0.1] w-full sm:w-full lg:w-[95%] rounded-xl sm:p-2 md:p-8 border sm:gap-2 md:gap-4 lg:gap-8 flex flex-col justify-between h-full "
         )}
       >
         {/* Title */}
@@ -50,7 +50,7 @@ export const Card3D: React.FC<Card3DProps> = ({ title, img, des, source, link, t
         </CardItem>
 
         {/* Technology Icons (SVGs) */}
-        <div className="flex justify-center items-center space-x-4 mt-4">
+        <div className="flex justify-center items-center space-x-4 mt-4 ">
           {tech.map((iconUrl, index) => (
             <CardItem key={index} translateZ={70} className="w-8 h-8 flex-shrink-1">
               <Image
@@ -65,28 +65,29 @@ export const Card3D: React.FC<Card3DProps> = ({ title, img, des, source, link, t
         </div>
 
         {/* Links section */}
-        <div className="flex justify-between items-center mt-8 gap-4 mx-5">
-          <CardItem
-            translateZ={10}
-            as="a"
-            href={source}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="px-4 py-2 rounded-xl text-s font-normal dark:text-white bg-transparent border-2 border-white"
-          >
-            Source
-          </CardItem>
-          <CardItem
-            translateZ={10}
-            as="a"
-            href={link}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="px-4 py-2 rounded-xl dark:bg-white dark:text-black text-white text-s font-bold"
-          >
-            Live
-          </CardItem>
-        </div>
+        <div className="w-full flex justify-center md:justify-between items-center mt-8 gap-4 mx-0 lg:mx-0 ">
+  <CardItem
+    translateZ={10}
+    as="a"
+    href={source}
+    target="_blank"
+    rel="noopener noreferrer"
+    className="  px-4 py-2 rounded-xl text-s font-normal dark:text-white bg-transparent border-2 border-white "
+  >
+    Source
+  </CardItem>
+  <CardItem
+    translateZ={10}
+    as="a"
+    href={link}
+    target="_blank"
+    rel="noopener noreferrer"
+    className="px-4 py-2 rounded-xl dark:bg-white dark:text-black text-white text-s font-bold "
+  >
+    Live
+  </CardItem>
+</div>
+
       </CardBody>
     </CardContainer>
   );

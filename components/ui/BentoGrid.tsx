@@ -39,7 +39,7 @@ export const BentoGridItem = ({
   return (
     <div
       className={cn(
-        "relative row-span-1 rounded-2xl overflow-hidden group/bento hover:shadow-xl transition duration-75 shadow-input dark:shadow-none  dark:bg-black dark:border-white/[0.2] bg-white  justify-between flex flex-col space-y-4 border border-white/[0.1] md:col-span-3 md:row-span-2 lg:col-span-2",
+        " select-none relative row-span-1 rounded-2xl overflow-hidden group/bento hover:shadow-xl transition duration-75 shadow-input dark:shadow-none dark:bg-black dark:border-white/[0.2] bg-white justify-between flex flex-col space-y-4 border border-white/[0.1] md:col-span-3 md:row-span-2 lg:col-span-2",
         className
       )}
       style={{
@@ -75,39 +75,46 @@ export const BentoGridItem = ({
         </div>
         {id === 6 && (
           <BackgroundGradientAnimation>
-            <div className="absolute z-50 text-white font-bold pointer-events-none text-3xl text-center md:text-4xl lg:text-7xl" />
+            <div className="absolute z-50 text-white font-bold pointer-events-none text-3xl text-center md:text-4xl lg:text-7xl select-none"  />
           </BackgroundGradientAnimation>
         )}
 
-        <div className={cn(titleClassName, "relative md:h-full min-h-40 flex flex-col px-5 p-5 lg:p-10  transition ")}>
-          <div className="font-sans font-extralight text-[#c1c2d4]  dark:text-neutral-300  text-xs md:text-lg lg:text-base z-10 bg-red inline-block px-2 py-1 rounded">
+        <div
+          className={cn(
+            titleClassName,
+            "relative md:h-full min-h-40 flex flex-col transition",
+            id === 2 ? "" : "px-5 p-5 lg:p-10"
+          )}
+        >
+          <div className="font-sans font-extralight text-[#c1c2d4] dark:text-neutral-300 text-xs md:text-lg lg:text-base z-10 bg-red inline-block rounded">
             {description}
           </div>
-          <div className="font-sans font-bold text-neutral-600 dark:text-neutral-200 lg:text-3xl max-w-96 z-10 px-2 py-1 text-lg ">
+          <div className="font-sans font-bold text-neutral-600 dark:text-neutral-200 lg:text-3xl max-w-96 z-10  text-lg ">
             {title}
           </div>
 
+          {/* Background Boxes */}
           {id === 2 && (
             <div className="h-40 relative w-full overflow-hidden bg-slate-900 flex flex-col items-center justify-center rounded-lg">
               <div className="absolute inset-0 w-full h-full bg-slate-900 z-20 [mask-image:radial-gradient(transparent,white)] pointer-events-none" />
-              <Boxes />
+              <Boxes className="z-40" />
 
-              <h1 className={cn("md:text-4xl text-xl text-white relative z-20")}>
+              <h1 className={cn("md:text-4xl text-xl text-white relative z-50 select-none")}>
                 {" "}
                 I&apos;m very <span className="swirl-effect">flexible</span>.
               </h1>
-              <p className="text-center mt-2 text-neutral-300 relative z-20">
+              <p className="text-center mt-2 text-neutral-300 relative z-50 select-none">
                 I can easily adjust my schedule to align with different regions and ensure seamless collaboration.
               </p>
             </div>
           )}
           {id === 3 && (
             <>
-              <div className="flex absolute -right-28 lg:right-0 top-0 w-fit  object-scale-down  ">
+              <div className="flex absolute -right-28 lg:right-0 top-0 w-fit object-scale-down">
                 <OrbitingCirclesDemo />
               </div>
-              <div className=" text-3xl  ">
-                <ul className="z-50 backdrop-blur-xl sm:text-sm md:text-base lg:text-3xl  inline-block px-2 py-1">
+              <div className="text-3xl">
+                <ul className="z-50 backdrop-blur-xl sm:text-sm md:text-base lg:text-3xl inline-block px-2 py-1">
                   <li>HTML</li>
                   <li>CSS</li>
                   <li>Javascript</li>

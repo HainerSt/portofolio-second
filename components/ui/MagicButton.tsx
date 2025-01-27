@@ -17,7 +17,7 @@ const MagicButton = ({
   return (
     <button
       className="w-full  justify-center relative inline-flex h-12 overflow-hidden rounded-lg p-[2px] 
-               md:w-60 md:mt-10 transition-all duration-200 ease-in-out mx-auto align-center"
+               md:w-60 md:mt-20 transition-all duration-200 ease-in-out mx-auto align-center"
       onClick={handleClick}
     >
       <span
